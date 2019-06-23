@@ -43,9 +43,6 @@
 
 			html {
 				background: black url(/Picture1.png) no-repeat center center fixed;
-				-webkit-background-size: cover;
-				-moz-background-size: cover;
-				-o-background-size: cover;
 				background-size: cover;
 				color: white;
 			}
@@ -125,7 +122,8 @@
 					"ASP Baton",
 					"Crowbar",
 					"Stick Grenade",
-					"Trench Mace"
+					"Trench Mace",
+					"Nightstick"
 				];
 				var twoHandBlade = [
 					"Chosen One",
@@ -136,7 +134,7 @@
 				var oneHandBlade = [
 					"Cleaver",
 					"Ice Pick",
-					"Jkey",
+					"Jade Key",
 					"Karambit",
 					"Knife",
 					"Machete",
@@ -154,7 +152,7 @@
 					var meleeActual = twoHandBlade[Math.floor(Math.random() * twoHandBlade.length)];
 				} else if (meleeClassGen == "oneHandBlade") {
 					var meleeActual = oneHandBlade[Math.floor(Math.random() * oneHandBlade.length)];
-				}
+				};
 
 				if (meleeActual == "Baseball Bat") {
 					if (document.getElementById("baseballBat").checked == true) {
@@ -202,7 +200,7 @@
 					if (document.getElementById("hattori").checked == true) {
 						meleeActualFinal = meleeActual;
 					} else {
-						 meleeActualFinal = "Knife";
+						meleeActualFinal = "Knife";
 					}
 				} else if (meleeActual == "Nordic War Axe") {
 					if (document.getElementById("nordicWarAxe").checked == true) {
@@ -222,7 +220,7 @@
 					} else {
 						meleeActualFinal = "Knife";
 					}
-				} else if (meleeActual == "Jkey") {
+				} else if (meleeActual == "Jade Key") {
 					if (document.getElementById("jKey").checked == true) {
 						meleeActualFinal = meleeActual;
 					} else {
@@ -276,13 +274,21 @@
 					} else {
 						meleeActualFinal = "Knife";
 					}
+				} else if (meleeActual == "Nightstick") {
+					if (document.getElementById("nightstick").checked == true) {
+						meleeActualFinal = meleeActual;
+					} else {
+						meleeActualFinal = "Knife";
+					}
 				} else {
 					meleeActualFinal = "Knife";
 				}
+
 				document.getElementById("num3").textContent = meleeActualFinal;
 				console.log(meleeActualFinal);
 				return meleeActualFinal;
 			}
+
 			function randomPrimaryGen() {
 				var primaryWeaponClasses = [
 					"assaultRifles",
@@ -292,13 +298,17 @@
 					"lmgs",
 					"dmrs",
 					"carbines",
-					"sniperRifles"
+					"sniperRifles",
+					"integrallySuppressed" // This value is a hack so primary weapons that are not supposed to have barrel attachments will behave as such.
 				];
 
 				var assaultRifles = [
+					// NEED TO FIX - ASSAULT RIFLES
+					// 1. AS VAL: Make sure function always returns null for barrel, Add Extended Magazine to Other, Add PSO-1 Scope to Optics.
+					// 2. SCAR-L: Add PM-II to Optics (Fuck you Mar.)
 					"000AK12",
 					"010AN-94",
-					"015AS VAL",
+					//"015AS VAL",
 					"016SCAR-L",
 					"020AUG A1",
 					"022M16A4",
@@ -312,32 +322,44 @@
 					"064HK416",
 					"074AK74",
 					"094AKM",
-					"103AK103",	
+					"103AK103",
 					"123M231"
 				];
 
 				var battleRifles = [
+					// NEED TO FIX - BATTLE RIFLES
+					// 1. SCAR-H: Add PM-II to Optics.
+					"021Beowulf ECR",
 					"030SCAR-H",
 					"044AK12BR",
+					"059G3",
 					"076AG-3",
 					"096Henry 45-70",
-					"107FAL 50.00",
-					"021Beowulf ECR",
-					"059G3"
+					"107FAL 50.00"
 				];
 
 				var shotguns = [
+					// NEED TO FIX - SHOTGUNS
+					// 1. SPAS-12: Add Extended Stock to Optics.
+					// 2. AA-12: Add 20RD Drum to Extra.
+					// 3. ALL: Add shotgun ammo types and remove Armor Piercing and Hollow Point in Extra.
 					"011Remington 870",
 					"001KSG-12",
-					"056KS-23M",
-					"081Stevens DB",
-					"063Saiga-12",
-					"120SPAS-12",
 					"024DBV12",
-					"112AA12"
+					"056KS-23M",
+					"063Saiga-12",
+					"081Stevens DB",
+					"112AA12",
+					"120SPAS-12"
 				];
 
 				var pdws = [
+					// NEED TO FIX - PDWs
+					// 1. MAC10: Add Sionics Suppressor to Barrel.
+					// 2. MP5SD: Function needs to return null for Barrel.
+					// 3. P90: Add Green Laser to Underbarrel.
+					// 4. PPSh-41: Remove all suppressors from Barrel.
+					// 5. ALL: Add Osprey Suppressor to Barrel. (Except PPSh-41 and *possibly* FAL Para Shorty?)
 					"000MP5K",
 					"006UMP45",
 					"009MP7",
@@ -346,18 +368,20 @@
 					"040MP5",
 					"049Colt SMG 635",
 					"053L2A3",
-					"060MP5SD",
+					//"060MP5SD",
 					"066MP10",
 					"071M3A1",
 					"074MP5/10",
 					"080AUG A3 Para",
-					"100KRISS Vector",
 					"092PPSh-41",
-					"107MP-40",
-					"098FAL Para Shorty"
+					"098FAL Para Shorty",
+					"100KRISS Vector",
+					"107MP-40"
 				];
 
 				var lmgs = [
+					// NEED TO FIX - LMGs
+					// 1. SCAR HAMR: Add PM-II to Optics.
 					"000Colt LMG",
 					"019M60",
 					"027AUG HBAR",
@@ -372,30 +396,39 @@
 				];
 
 				var dmrs = [
+					// NEED TO FIX - DMRs
+					// 1. SKS: Add PSO-1 Scope to Optics.
+					// 2. VSS Vintorez: Add PSO-1 Scope to Optics. Make function return null for Barrel.
+					// 3. SCAR SSR: Add PM-II to Optics.
 					"003MK11",
 					"013SKS",
-					"046VSS Vintorez",
-					"085SCAR SSR",
-					"070Beowulf TCR",
+					//"046VSS Vintorez",
 					"059MSG90",
-					"078SA58 SPR"
+					"070Beowulf TCR",
+					"078SA58 SPR",
+					"085SCAR SSR"
 				];
 
 				var carbines = [
+					// NEED TO FIX - CARBINES
+					// 1. SCAR PDW: Add PM-II to Optics.
+					// 2. Honey Badger: Make function return null for barrel.
+					// 3. SR-3M:Add PSO-1 Scope to Optics. Add Extended Magazine to Extra.
 					"000M4A1",
 					"007G36C",
 					"014M4",
 					"028L22",
 					"032SCAR PDW",
 					"035AKU12",
-					"051AK12C",
-					"069SR-3M",
 					"042Groza-1",
-					"079Groza-4",
-					"062Honey Badger",
-					"086MC51SD",
+					"051AK12C",
+					//"062Honey Badger",
+					"069SR-3M",
+					//"079Groza-4",
+					//"086MC51SD",
 					"089FAL 50.63 Para",
 					"105AK105"
+					//XXXR Squared
 				];
 
 				var sniperRifles = [
@@ -403,14 +436,24 @@
 					"038Dragunov SVU",
 					"105Dragunov SVDS",
 					"012Remington 700",
-					"041AWS",
+					//"041AWS",
 					"065BFG 50",
 					"082L115A3",
 					"091Mosin Nagant",
 					"150Hecate II",
-					//"XXXM107".
+					//"XXXM107",
 					"195Steyr Scout"
 				];
+
+				var integrallySuppressed = [
+					"015AS VAL",
+					"041AWS",
+					"046VSS Vintorez",
+					"060MP5SD",
+					"062Honey Badger",
+					"079Groza-4",
+					"086MC51SD"
+				]
 
 				var primaryAttachmentsSight = [
 					"Default",
@@ -437,12 +480,12 @@
 					"TA11 ACOG",
 					"Barska Electro",
 					"Pilad-3",
-					"PM-II",
-					"PSO-1 Scope",
-					"PSO-1M2 Scope",
-					"PU-1 Scope",
-					"Leupold M8 6x",
-					"Extended Stock [SPAS-12]"
+					//"PM-II",
+					//"PSO-1 Scope",
+					//"PSO-1M2 Scope",
+					//"PU-1 Scope",
+					//"Leupold M8 6x",
+					//"Extended Stock [SPAS-12]"
 				];
 
 				var primaryAttachmentsBarrel = [
@@ -453,17 +496,19 @@
 					"Flash Hider",
 					"Muzzle Brake",
 					"Compensator",
-					"Osprey Suppressor",
-					"Sionics Suppressor",
+					//"Osprey Suppressor",
+					//"Sionics Suppressor [MAC-10]",
 					"Default"
 				];
+
+				var integrallySuppressedBarrel = "N/A";
 
 				var primaryAttachmentsUnderBarrel = [
 					"Vertical Grip",
 					"Angled Grip",
 					"Folding Grip",
 					"Stubby Grip",
-					"Green Laser",
+					//"Green Laser",
 					"Flashlight",
 					"Laser",
 					"Default"
@@ -476,20 +521,22 @@
 					"Canted Iron Sights",
 					"Canted Delta Sights",
 					"Flashlight",
-					"Hollow Point",
-					"Armor Piercing",
-					"Flechette [Shotguns]",
-					"Birdshot [Shotguns]",
-					"Slugs [Shotguns]",
-					"Extended Magazine",
-					"20rd Drum",
+					//"Hollow Point",
+					//"Armor Piercing",
+					//"Flechette",
+					//"Birdshot",
+					//"Slugs",
+					//"Extended Magazine",
+					//"20rd Drum [AA-12]",
 					"Default"
 				];
 
 				var userRank = document.getElementById("userRankInput").value;
 				var weaponIsAvailable = false;
+
 				while (weaponIsAvailable == false) {
 					var primaryClassGen = primaryWeaponClasses[Math.floor(Math.random() * primaryWeaponClasses.length)];
+
 					if (primaryClassGen == "assaultRifles") {
 						var primaryActual = assaultRifles[Math.floor(Math.random() * assaultRifles.length)];
 					} else if (primaryClassGen == "battleRifles") {
@@ -506,7 +553,10 @@
 						var primaryActual = carbines[Math.floor(Math.random() * carbines.length)];
 					} else if (primaryClassGen == "sniperRifles") {
 						var primaryActual = sniperRifles[Math.floor(Math.random() * sniperRifles.length)];
-					}
+					} else if (primaryClassGen == "integrallySuppressed") {
+						var primaryActual = integrallySuppressed[Math.floor(Math.random() * integrallySuppressed.length)];
+						//var primaryBarrelActual = null;
+					};
 
 					var primaryWeaponWithoutRank = primaryActual.slice(3, 999);
 					var primaryWeaponRank = primaryActual.slice(0, 3);
@@ -514,10 +564,16 @@
 
 					if (userRank >= finalPrimaryWeaponRank) {
 						weaponIsAvailable == true;
+
 						var primarySightActual = primaryAttachmentsSight[Math.floor(Math.random() * primaryAttachmentsSight.length)];
-						var primaryBarrelActual = primaryAttachmentsBarrel[Math.floor(Math.random() * primaryAttachmentsBarrel.length)];
+						if (primaryActual == ["AS VAL", "AWS", "VSS Vintorez", "MP5SD", "Honey Badger", "Groza-4", "MC51SD"]) {
+							var primaryBarrelActual = integrallySuppressedBarrel;
+						} else {
+							var primaryBarrelActual = primaryAttachmentsBarrel[Math.floor(Math.random() * primaryAttachmentsBarrel.length)];
+						};
 						var primaryUnderBarrelActual = primaryAttachmentsUnderBarrel[Math.floor(Math.random() * primaryAttachmentsUnderBarrel.length)];
 						var primaryExtraActual = primaryAttachmentsExtra[Math.floor(Math.random() * primaryAttachmentsExtra.length)];
+
 						var primaryFinal = primaryWeaponWithoutRank;
 						var primaryFinalAttachments = "(" + primarySightActual + ", " + primaryBarrelActual + ", " + primaryUnderBarrelActual + ", " + primaryExtraActual + ")";
 						document.getElementById("num1").textContent = primaryFinal;
@@ -531,8 +587,7 @@
 					} else {
 						continue;
 					}
-				}
-				return primaryFinal;
+				};
 			};
 
 			function randomSecondaryGen() {
@@ -548,7 +603,7 @@
 					"000Glock 17",
 					"008M1911",
 					"034M45A1",
-					"018Deagle .44",
+					"018Deagle 44",
 					"057Five Seven",
 					"061ZIP 22"
 				];
@@ -563,8 +618,8 @@
 				var revolvers = [
 					"004MP412 REX",
 					"0581858 New Army",
-					//"0XXRedhawk 44",
-					"029Mateba 6"
+					"029Mateba 6",
+					"083Redhawk 44",
 				];
 
 				var others = [
@@ -621,13 +676,7 @@
 					"Flashlight",
 					"Hollow Point",
 					"Armor Piercing",
-					"Flechete",
-					"Birdshot",
-					"Slugs",
 					"Ballistics Tracker",
-					"Glock Stock",
-					"33Round Magazine",
-					"Boom Stock",
 					"None"
 				];
 
@@ -641,11 +690,11 @@
 						secondaryActual = pistols[Math.floor(Math.random() * pistols.length)];
 					} else if (secondaryClassGen == "machinePistols") {
 						secondaryActual = machinePistols[Math.floor(Math.random() * machinePistols.length)];
-					} else if (secondaryClassGen == "shotguns") {
+					} else if (secondaryClassGen == "revolvers") {
 						secondaryActual = revolvers[Math.floor(Math.random() * revolvers.length)];
 					} else if (secondaryClassGen == "others") {
 						secondaryActual = others[Math.floor(Math.random() * others.length)];
-					}
+					};
 		
 					var secondaryWeaponWithoutRank = secondaryActual.slice(3, 999);
 					var secondaryWeaponRank = secondaryActual.slice(0, 3);
@@ -664,7 +713,11 @@
 						document.getElementById("num2a").textContent = secondaryFinalAttachments;
 
 						console.log(secondaryFinal);
-						return secondaryFinal;
+						if (secondaryFinal = null) {
+							throw new TypeError("Something went wrong :(");
+						} else {
+							return secondaryFinal;
+						}
 						break;
 					} else if (userRank < 0) {
 						document.getElementById("num2").textContent = "RANK ERROR";
@@ -688,53 +741,55 @@
 			<h1>PF Loadout Randomizer (WIP)</h1>
 			<h5>Accurate as of PF version <a href="https://roblox-phantom-forces.fandom.com/wiki/Change_Log" title="View change log">4.4.3</a></h5>
 		</div>
-		<section class="container" style="margin-bottom:10em!important;">
+		<section class="container" style="margin-bottom: 10em !important;">
 			<div class="a">
 				<h1>Your Rank:</h1>
-				<input type="number" id="userRankInput" value="150" min="0" title="Select rank here."/>
+				<input type="number" id="userRankInput" value="150" min="0" title="Select rank here." />
 				<h3 style="margin-bottom:0.35em;">Select your melees:</h3>
 				<h2 style="margin-top:0; margin-bottom:0.5em;">-------------</h2>
-				<input type="checkbox" id="baseballBat" value="1" title="Baseball Bat"> <span style="font-family:sans-serif;">Baseball Bat</span>
-				<br>
-				<input type="checkbox" id="sledgeHammer" value="1" title="Sledge Hammer"> <span style="font-family:sans-serif;">Sledge Hammer</span>
-				<br>
-				<input type="checkbox" id="brassKnuckle" value="1" title="Brass Knuckle"> <span style="font-family:sans-serif;">Brass Knuckle</span>
-				<br>
-				<input type="checkbox" id="fryingPan" value="1" title="Frying Pan"> <span style="font-family:sans-serif;">Frying Pan</span>
-				<br>
-				<input type="checkbox" id="aspBaton" value="1" title="ASP Baton"> <span style="font-family:sans-serif;">ASP Baton</span>
-				<br>
-				<input type="checkbox" id="crowbar" value="1" title="Crowbar"> <span style="font-family:sans-serif;">Crowbar</span>
-				<br>
-				<input type="checkbox" id="stickGrenade" value="1" title="Stick Grenade"> <span style="font-family:sans-serif;">Stick Grenade</span>
-				<br>
-				<input type="checkbox" id="trenchMace" value="1" title="Trench Mace"> <span style="font-family:sans-serif;">Trench Mace</span>
-				<br>
-				<input type="checkbox" id="chosenOne" value="1" title="Chosen One"> <span style="font-family:sans-serif;">Chosen One</span>
-				<br>
-				<input type="checkbox" id="hattori" value="1" title="Hattori"> <span style="font-family:sans-serif;">Hattori</span>
-				<br>
-				<input type="checkbox" id="nordicWarAxe" value="1" title="Nordic War Axe"> <span style="font-family:sans-serif;">Nordic War Axe</span>
-				<br>
-				<input type="checkbox" id="longsword" value="1" title="Longsword"> <span style="font-family:sans-serif;">Longsword</span>
-				<br>
-				<input type="checkbox" id="cleaver" value="1" title="Cleaver"> <span style="font-family:sans-serif;">Cleaver</span>
-				<br>
-				<input type="checkbox" id="icePick" value="1" title="Ice Pick"> <span style="font-family:sans-serif;">Ice Pick</span>
-				<br>
-				<input type="checkbox" id="jKey" value="1" title="Jade Key"> <span style="font-family:sans-serif;">Jade Key</span>
-				<br>
-				<input type="checkbox" id="karambitR" value="1" title="Karambit"> <span style="font-family:sans-serif;">Karambit</span>
-				<br>
-				<input type="checkbox" id="machete" value="1" title="Machete"> <span style="font-family:sans-serif;">Machete</span>
-				<br>
-				<input type="checkbox" id="mekleth" value="1" title="Mek'Leth"> <span style="font-family:sans-serif;">Mek'Leth</span>
-				<br>
-				<input type="checkbox" id="tomahawk" value="1" title="Tomahawk"> <span style="font-family:sans-serif;">Tomahawk</span>
-				<br>
-				<input type="checkbox" id="tacticalSpatula" value="1" title="Tactical Spatula"> <span style="font-family:sans-serif;">Tactical Spatula</span>
-				<br>
-				<br>
+				<input type="checkbox" id="baseballBat" value="1" title="Baseball Bat" /> <span style="font-family:sans-serif;">Baseball Bat</span>
+				<br />
+				<input type="checkbox" id="sledgeHammer" value="1" title="Sledge Hammer" /> <span style="font-family:sans-serif;">Sledge Hammer</span>
+				<br />
+				<input type="checkbox" id="brassKnuckle" value="1" title="Brass Knuckle" /> <span style="font-family:sans-serif;">Brass Knuckle</span>
+				<br />
+				<input type="checkbox" id="fryingPan" value="1" title="Frying Pan" /> <span style="font-family:sans-serif;">Frying Pan</span>
+				<br />
+				<input type="checkbox" id="aspBaton" value="1" title="ASP Baton" /> <span style="font-family:sans-serif;">ASP Baton</span>
+				<br />
+				<input type="checkbox" id="crowbar" value="1" title="Crowbar" /> <span style="font-family:sans-serif;">Crowbar</span>
+				<br />
+				<input type="checkbox" id="stickGrenade" value="1" title="Stick Grenade" /> <span style="font-family:sans-serif;">Stick Grenade</span>
+				<br />
+				<input type="checkbox" id="trenchMace" value="1" title="Trench Mace" /> <span style="font-family:sans-serif;">Trench Mace</span>
+				<br />
+				<input type="checkbox" id="chosenOne" value="1" title="Chosen One" /> <span style="font-family:sans-serif;">Chosen One</span>
+				<br />
+				<input type="checkbox" id="hattori" value="1" title="Hattori" /> <span style="font-family:sans-serif;">Hattori</span>
+				<br />
+				<input type="checkbox" id="nordicWarAxe" value="1" title="Nordic War Axe" /> <span style="font-family:sans-serif;">Nordic War Axe</span>
+				<br />
+				<input type="checkbox" id="longsword" value="1" title="Longsword" /> <span style="font-family:sans-serif;">Longsword</span>
+				<br />
+				<input type="checkbox" id="cleaver" value="1" title="Cleaver" /> <span style="font-family:sans-serif;">Cleaver</span>
+				<br />
+				<input type="checkbox" id="icePick" value="1" title="Ice Pick" /> <span style="font-family:sans-serif;">Ice Pick</span>
+				<br />
+				<input type="checkbox" id="jKey" value="1" title="Jade Key" /> <span style="font-family:sans-serif;">Jade Key</span>
+				<br />
+				<input type="checkbox" id="karambitR" value="1" title="Karambit" /> <span style="font-family:sans-serif;">Karambit</span>
+				<br />
+				<input type="checkbox" id="machete" value="1" title="Machete" /> <span style="font-family:sans-serif;">Machete</span>
+				<br />
+				<input type="checkbox" id="mekleth" value="1" title="Mek'Leth" /> <span style="font-family:sans-serif;">Mek'Leth</span>
+				<br />
+				<input type="checkbox" id="tomahawk" value="1" title="Tomahawk" /> <span style="font-family:sans-serif;">Tomahawk</span>
+				<br />
+				<input type="checkbox" id="tacticalSpatula" value="1" title="Tactical Spatula" /> <span style="font-family: sans-serif;">Tactical Spatula</span>
+				<br />
+				<input type="checkbox" id="nightstick" value="1" title="Nightstick" /> <span style="font-family: sans-serif;">Nightstick</span>
+				<br />
+				<br />
 				<button type="button" onclick="randomLoadout()" title="Click to receive your loadout!">Generate Loadout</button>
 			</div>
 			<div class="b">
@@ -758,7 +813,7 @@
 				</p>
 			</div>
 		</section>
-		<h5 align=center style="margin-bottom:10px;"><a href="https://roblox-phantom-forces.fandom.com/wiki/Weaponry" title="PFW weaponry page">Weaponry Reference</a> | <a href="https://roblox-phantom-forces.fandom.com/wiki/Attachments" title="PFW attachments page">Attachment Reference</a></h5>
-		<h5 align=center style="font-family:'Times New Roman', Times, serif;">Made by @Duo#0012</h5>
+		<h5 align=center style="margin-bottom: 10px;"><a href="https://roblox-phantom-forces.fandom.com/wiki/Weaponry" title="PFW weaponry page">Weaponry Reference</a> | <a href="https://roblox-phantom-forces.fandom.com/wiki/Attachments" title="PFW attachments page">Attachment Reference</a></h5>
+		<h5 align=center style="font-family: 'Times New Roman', Times, serif;">Made by @Duo#0012</h5>
 	</body>
 </html>
