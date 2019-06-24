@@ -94,6 +94,11 @@
 			a {
 				color: skyblue;
 			}
+
+			img.test {
+				height: 42px;
+				width: 42px;
+			}
 		</style>
 		<script type="text/javascript">
 			function toggle_visibility(id) {
@@ -406,7 +411,7 @@
 					"059MSG90",
 					"070Beowulf TCR",
 					"078SA58 SPR",
-					"085SCAR SSR"
+					"085SCAR SSR",
 				];
 
 				var carbines = [
@@ -427,8 +432,9 @@
 					//"079Groza-4",
 					//"086MC51SD",
 					"089FAL 50.63 Para",
-					"105AK105"
-					//XXXR Squared
+					"0931858 Carbine",
+					"105AK105",
+					//XXXR Squared,
 				];
 
 				var sniperRifles = [
@@ -442,7 +448,7 @@
 					"091Mosin Nagant",
 					"150Hecate II",
 					//"XXXM107",
-					"195Steyr Scout"
+					"195Steyr Scout",
 				];
 
 				var integrallySuppressed = [
@@ -452,7 +458,7 @@
 					"060MP5SD",
 					"062Honey Badger",
 					"079Groza-4",
-					"086MC51SD"
+					"086MC51SD",
 				]
 
 				var primaryAttachmentsSight = [
@@ -485,7 +491,7 @@
 					//"PSO-1M2 Scope",
 					//"PU-1 Scope",
 					//"Leupold M8 6x",
-					//"Extended Stock [SPAS-12]"
+					//"Extended Stock [SPAS-12]",
 				];
 
 				var primaryAttachmentsBarrel = [
@@ -498,7 +504,7 @@
 					"Compensator",
 					//"Osprey Suppressor",
 					//"Sionics Suppressor [MAC-10]",
-					"Default"
+					"Default",
 				];
 
 				var integrallySuppressedBarrel = "N/A";
@@ -511,7 +517,7 @@
 					//"Green Laser",
 					"Flashlight",
 					"Laser",
-					"Default"
+					"Default",
 				];
 
 				var primaryAttachmentsExtra = [
@@ -528,7 +534,7 @@
 					//"Slugs",
 					//"Extended Magazine",
 					//"20rd Drum [AA-12]",
-					"Default"
+					"Default",
 				];
 
 				var userRank = document.getElementById("userRankInput").value;
@@ -595,7 +601,7 @@
 					"pistols",
 					"machinePistols",
 					"revolvers",
-					"others"
+					"others",
 				];
 
 				var pistols = [
@@ -605,14 +611,14 @@
 					"034M45A1",
 					"018Deagle 44",
 					"057Five Seven",
-					"061ZIP 22"
+					"061ZIP 22",
 				];
 
 				var machinePistols = [
 					"017Glock 18",
 					"026M93R",
 					"050TEC-9",
-					"106MP1911"
+					"106MP1911",
 				];
 
 				var revolvers = [
@@ -626,7 +632,7 @@
 					"117Obrez",
 					"075SFG-50",
 					"090Sawed Off",
-					"036Serbu Shotgun"
+					"036Serbu Shotgun",
 				];
 
 				var secondaryAttachmentsSight = [
@@ -636,7 +642,7 @@
 					"MARS",
 					"EOTech 552",
 					"PK-A",
-					"PKA-s",
+					"PKA-S",
 					"Reflex Sight",
 					"Kobra Sight",
 					"Coyote Sight",
@@ -655,7 +661,7 @@
 					"Barska Electro",
 					"Pilad-3",
 					"Half Ring Sight",
-					"Full Ring Sight"
+					"Full Ring Sight",
 				];
 
 				var secondaryAttachmentsBarrel = [
@@ -667,7 +673,7 @@
 					"Muzzle Brake",
 					"Compensator",
 					"Osprey Suppressor",
-					"Default"
+					"Default",
 				];
 
 				var secondaryAttachmentsExtra = [
@@ -677,7 +683,7 @@
 					"Hollow Point",
 					"Armor Piercing",
 					"Ballistics Tracker",
-					"None"
+					"None",
 				];
 
 				var secondaryActual = "lmao";
@@ -738,52 +744,53 @@
 	</head>
 	<body onload="toggle_visibility('popupBoxOnePosition');">
 		<div class="heading">
-			<h1>PF Loadout Randomizer (WIP)</h1>
+			<h1>PF Loadout Randomizer (WIP)</h1><img src="https://cdn.discordapp.com/attachments/455392859076558860/592392176189702156/Pikachu_transparent.png" class="test" alt="Pika!" title="Pika!" height="42" width="42" style="float: right; position: fixed; right: 10px; top: 10px;" />
 			<h5>Accurate as of PF version <a href="https://roblox-phantom-forces.fandom.com/wiki/Change_Log" title="View change log">4.4.3</a></h5>
 		</div>
+
 		<section class="container" style="margin-bottom: 10em !important;">
 			<div class="a">
 				<h1>Your Rank:</h1>
 				<input type="number" id="userRankInput" value="150" min="0" title="Select rank here." />
 				<h3 style="margin-bottom:0.35em;">Select your melees:</h3>
-				<h2 style="margin-top:0; margin-bottom:0.5em;">-------------</h2>
-				<input type="checkbox" id="baseballBat" value="1" title="Baseball Bat" /> <span style="font-family:sans-serif;">Baseball Bat</span>
+				<h2 style="margin-top: 0; margin-bottom: 0.5em;">-------------</h2>
+				<input type="checkbox" id="baseballBat" value="1" title="Baseball Bat" /> <span style="font-family: sans-serif;">Baseball Bat</span>
 				<br />
-				<input type="checkbox" id="sledgeHammer" value="1" title="Sledge Hammer" /> <span style="font-family:sans-serif;">Sledge Hammer</span>
+				<input type="checkbox" id="sledgeHammer" value="1" title="Sledge Hammer" /> <span style="font-family: sans-serif;">Sledge Hammer</span>
 				<br />
-				<input type="checkbox" id="brassKnuckle" value="1" title="Brass Knuckle" /> <span style="font-family:sans-serif;">Brass Knuckle</span>
+				<input type="checkbox" id="brassKnuckle" value="1" title="Brass Knuckle" /> <span style="font-family: sans-serif;">Brass Knuckle</span>
 				<br />
-				<input type="checkbox" id="fryingPan" value="1" title="Frying Pan" /> <span style="font-family:sans-serif;">Frying Pan</span>
+				<input type="checkbox" id="fryingPan" value="1" title="Frying Pan" /> <span style="font-family: sans-serif;">Frying Pan</span>
 				<br />
-				<input type="checkbox" id="aspBaton" value="1" title="ASP Baton" /> <span style="font-family:sans-serif;">ASP Baton</span>
+				<input type="checkbox" id="aspBaton" value="1" title="ASP Baton" /> <span style="font-family: sans-serif;">ASP Baton</span>
 				<br />
-				<input type="checkbox" id="crowbar" value="1" title="Crowbar" /> <span style="font-family:sans-serif;">Crowbar</span>
+				<input type="checkbox" id="crowbar" value="1" title="Crowbar" /> <span style="font-family: sans-serif;">Crowbar</span>
 				<br />
-				<input type="checkbox" id="stickGrenade" value="1" title="Stick Grenade" /> <span style="font-family:sans-serif;">Stick Grenade</span>
+				<input type="checkbox" id="stickGrenade" value="1" title="Stick Grenade" /> <span style="font-family: sans-serif;">Stick Grenade</span>
 				<br />
-				<input type="checkbox" id="trenchMace" value="1" title="Trench Mace" /> <span style="font-family:sans-serif;">Trench Mace</span>
+				<input type="checkbox" id="trenchMace" value="1" title="Trench Mace" /> <span style="font-family: sans-serif;">Trench Mace</span>
 				<br />
-				<input type="checkbox" id="chosenOne" value="1" title="Chosen One" /> <span style="font-family:sans-serif;">Chosen One</span>
+				<input type="checkbox" id="chosenOne" value="1" title="Chosen One" /> <span style="font-family: sans-serif;">Chosen One</span>
 				<br />
-				<input type="checkbox" id="hattori" value="1" title="Hattori" /> <span style="font-family:sans-serif;">Hattori</span>
+				<input type="checkbox" id="hattori" value="1" title="Hattori" /> <span style="font-family: sans-serif;">Hattori</span>
 				<br />
-				<input type="checkbox" id="nordicWarAxe" value="1" title="Nordic War Axe" /> <span style="font-family:sans-serif;">Nordic War Axe</span>
+				<input type="checkbox" id="nordicWarAxe" value="1" title="Nordic War Axe" /> <span style="font-family: sans-serif;">Nordic War Axe</span>
 				<br />
-				<input type="checkbox" id="longsword" value="1" title="Longsword" /> <span style="font-family:sans-serif;">Longsword</span>
+				<input type="checkbox" id="longsword" value="1" title="Longsword" /> <span style="font-family: sans-serif;">Longsword</span>
 				<br />
-				<input type="checkbox" id="cleaver" value="1" title="Cleaver" /> <span style="font-family:sans-serif;">Cleaver</span>
+				<input type="checkbox" id="cleaver" value="1" title="Cleaver" /> <span style="font-family: sans-serif;">Cleaver</span>
 				<br />
-				<input type="checkbox" id="icePick" value="1" title="Ice Pick" /> <span style="font-family:sans-serif;">Ice Pick</span>
+				<input type="checkbox" id="icePick" value="1" title="Ice Pick" /> <span style="font-family: sans-serif;">Ice Pick</span>
 				<br />
-				<input type="checkbox" id="jKey" value="1" title="Jade Key" /> <span style="font-family:sans-serif;">Jade Key</span>
+				<input type="checkbox" id="jKey" value="1" title="Jade Key" /> <span style="font-family: sans-serif;">Jade Key</span>
 				<br />
-				<input type="checkbox" id="karambitR" value="1" title="Karambit" /> <span style="font-family:sans-serif;">Karambit</span>
+				<input type="checkbox" id="karambitR" value="1" title="Karambit" /> <span style="font-family: sans-serif;">Karambit</span>
 				<br />
-				<input type="checkbox" id="machete" value="1" title="Machete" /> <span style="font-family:sans-serif;">Machete</span>
+				<input type="checkbox" id="machete" value="1" title="Machete" /> <span style="font-family: sans-serif;">Machete</span>
 				<br />
-				<input type="checkbox" id="mekleth" value="1" title="Mek'Leth" /> <span style="font-family:sans-serif;">Mek'Leth</span>
+				<input type="checkbox" id="mekleth" value="1" title="Mek'Leth" /> <span style="font-family: sans-serif;">Mek'Leth</span>
 				<br />
-				<input type="checkbox" id="tomahawk" value="1" title="Tomahawk" /> <span style="font-family:sans-serif;">Tomahawk</span>
+				<input type="checkbox" id="tomahawk" value="1" title="Tomahawk" /> <span style="font-family: sans-serif;">Tomahawk</span>
 				<br />
 				<input type="checkbox" id="tacticalSpatula" value="1" title="Tactical Spatula" /> <span style="font-family: sans-serif;">Tactical Spatula</span>
 				<br />
@@ -814,6 +821,44 @@
 			</div>
 		</section>
 		<h5 align=center style="margin-bottom: 10px;"><a href="https://roblox-phantom-forces.fandom.com/wiki/Weaponry" title="PFW weaponry page">Weaponry Reference</a> | <a href="https://roblox-phantom-forces.fandom.com/wiki/Attachments" title="PFW attachments page">Attachment Reference</a></h5>
-		<h5 align=center style="font-family: 'Times New Roman', Times, serif;">Made by @Duo#0012</h5>
+		<h5 align=center style="font-family: 'Times New Roman', Times, serif;">Made by @Duo#0012</h5><!--
+		<table align="center" style="font-family: 'Montserrat'; width: 100%; text-align: center; border: 4px outset white; table-layout: fixed; vertical-align:middle; padding:10px initial;">
+			<thead>
+				<tr>
+					<th colspan="4" align="center" style="border: 3px inset white; font-size: 16pt; vertical-align:middle;">StyLiS Links</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td style="border: 3px solid white;">
+						<a href="https://www.roblox.com/games/292439477" title="Game">
+							<img src="image/game.png" alt="Game" height="36" width="36" />
+						</a>
+					</td>
+					<td style="border: 3px solid white;">
+						<a href="https://www.roblox.com/groups/group.aspx?gid=1103278" title="Group">
+							<img src="https://cdn.discordapp.com/attachments/455392859076558860/592410021384421376/Stylis_new.png" alt="Group" height="36" width="36" />
+						</a>
+					</td>
+					<td style="border: 3px solid white;">
+						<a href="https://www.roblox.com/games/299659045/test-place" title="Test Place">
+							<img src="image/pika.png" alt="Test Place" height="36" width="36" />
+						</a>
+					</td>
+					<td style="border: 3px solid white;">Forum</td>
+				</tr>
+				<tr>
+					<td style="border: 3px solid white;">Blog</td>
+					<td style="border: 3px solid white;">Twitch</td>
+					<td style="border: 3px solid white;">Discord</td>
+					<td style="border: 3px solid white;">Reddit</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="4" style="border: 3px inset white;">Linkbox is a work-in-progress.</td>
+				</tr>
+			</tfoot>
+		</table>-->
 	</body>
 </html>
