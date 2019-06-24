@@ -1,0 +1,77 @@
+body {
+	margin-top: 1em;
+}	
+.container {
+	width: 80%;
+	height: 500px;
+	margin: auto;
+	padding: 10px;
+	background: black;
+}
+div.heading {
+	text-align: center;
+	font-family: "Consolas", monospace;
+	background: black;
+}
+div.a {
+	font-family: "Consolas", monospace;
+	width: 50%;
+	height: 200px;
+	float: left;
+	text-align: left;
+}
+div.b {
+	font-family: "Consolas", monospace;
+	margin-left: 50%;
+	height: 200px;
+	text-align: center;
+}
+html {
+	background: black;
+	background-size: cover;
+	color: white;
+}
+#popupBoxOnePosition {
+	top: 0;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	height: 120%;
+	background-color: rgba(0, 0, 0, 0.7);
+	display: none;
+}
+.popupBoxWrapper {
+	width: 550px;
+	margin: 50px auto;
+	text-align: left;
+	font-family: "Consolas", monospace;
+}
+.popupBoxContent {
+	background-color: black;
+	padding: 15px;
+	font-family: "Consolas", monospace;
+	text-align: center;
+}
+h1, h2, h3, h4 {
+	font-family: "Consolas", monospace;
+	font-weight: normal !important;
+}
+.heading > h1 {
+	margin-bottom: 7px;
+	font-family: "Montserrat", sans-serif;
+}
+h5, h6 {
+	margin-top: 2px;
+	font-family: "Montserrat", sans-serif;
+	font-weight: normal;
+}
+p {
+	font-family: "Consolas", monospace;
+}
+a {
+	color: skyblue;
+}
+img.test {
+	height: 42px;
+	width: 42px;
+}
