@@ -10,42 +10,6 @@
 		<style>
 			@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 		</style>
-		<!--<style>
-			@import "@material/button/mdc-button";
-			@import "@material/card/mdc-card";
-			@import "@material/checkbox/mdc-checkbox";
-			@import "@material/chips/mdc-chips";
-			@import "@material/dialog/mdc-dialog";
-			@import "@material/drawer/mdc-drawer";
-			@import "@material/elevation/mdc-elevation";
-			@import "@material/fab/mdc-fab";
-			@import "@material/floating-label/mdc-floating-label";
-			@import "@material/form-field/mdc-form-field";
-			@import "@material/grid-list/mdc-grid-list";
-			@import "@material/icon-button/mdc-icon-button";
-			@import "@material/image-list/mdc-image-list";
-			@import "@material/layout-grid/mdc-layout-grid";
-			@import "@material/line-ripple/mdc-line-ripple";
-			@import "@material/linear-progress/mdc-linear-progress";
-			@import "@material/list/mdc-list";
-			@import "@material/menu/mdc-menu";
-			@import "@material/menu-surface/mdc-menu-surface";
-			@import "@material/notched-outline/mdc-notched-outline";
-			@import "@material/radio/mdc-radio";
-			@import "@material/ripple/mdc-ripple";
-			@import "@material/select/mdc-select";
-			@import "@material/slider/mdc-slider";
-			@import "@material/snackbar/mdc-snackbar";
-			@import "@material/switch/mdc-switch";
-			@import "@material/tab/mdc-tab";
-			@import "@material/tab-bar/mdc-tab-bar";
-			@import "@material/tab-indicator/mdc-tab-indicator";
-			@import "@material/tab-scroller/mdc-tab-scroller";
-			@import "@material/textfield/mdc-text-field";
-			@import "@material/theme/mdc-theme";
-			@import "@material/top-app-bar/mdc-top-app-bar";
-			@import "@material/typography/mdc-typography";
-		</style>-->
 		<script type="text/javascript">
 			function toggle_visibility(id) {
 				var e = document.getElementById(id);
@@ -83,6 +47,7 @@
 					"Crane",
 				];
 
+				// This var's only purpose is to include the Crowbar as a default weapon. I suck at JS ok?
 				var meleeDefault = [
 					"Knife",
 					"Crowbar",
@@ -231,18 +196,8 @@
 				console.log(meleeActualFinal);
 				return meleeActualFinal;
 			};
+
 			function randomPrimaryGen() {
-				/* This var may be deprecated in the future to condense file size.
-				// This var is a hack to make weapons that shouldn't have barrel attachments behave as such.
-				var integrallySuppressed = [
-					"015AS VAL",
-					"041AWS",
-					"046VSS Vintorez",
-					"060MP5SD",
-					"062Honey Badger",
-					"079Groza-4",
-					"086MC51SD",
-				]; */
 				var primaryWeapons = [
 					"000AK12",
 					"000MP5K",
@@ -343,7 +298,7 @@
 					"089FAL 50.63 Para",
 					// Gap: Rank 90
 					"091Mosin Nagant",
-					"092PPSh-41",
+					"092PPSH-41",
 					"0931858 Carbine",
 					"094AKM",
 					// Gap: Rank 95
@@ -398,12 +353,9 @@
 					"TA11 ACOG",
 					"Barska Electro",
 					"Pilad-3",
-					//"PM-II", // For SCAR-L, SCAR-H, SCAR-PDW, SCAR-HAMR, SCAR-SSR, AWS, L115A3, TRG-42[TESTplace].
 					//"PSO-1 Scope", // For AS VAL, SKS, Dragunov SVU, VSS Vintorez, SR-3M, Mosin Nagant?.
-					//"PSO-1M2 Scope", // For Dragunov SVDS.
 					//"PU-1 Scope", // For Mosin Nagant.
 					//"Leupold M8 6x", // For Steyr Scout.
-					//"Extended Stock", // For SPAS-12.
 					//"Half Ring Sight", // For 1858 Carbine.
 					//"Full Ring Sight", // For 1858 Carbine.
 					//"Lyman Sight", // For M1921[TESTplace]
@@ -413,18 +365,12 @@
 					"Supressor",
 					"R2 Suppressor",
 					"ARS Supressor",
-					"PBS-1 Suppressor",
 					"PBS-4 Suppressor",
 					"Flash Hider",
 					"Muzzle Brake",
 					"Compensator",
-					//"Osprey Suppressor", // For PDWS minus PPSh-41 and FAL Para Shorty.
-					//"Sionics Suppressor", // For MAC-10.
 					"Default",
 				];
-
-				// This var is a hack for integrally suppressed weapons.
-				//var integrallySuppressedBarrel = "N/A";
 
 				var primaryAttachmentsUnderBarrel = [
 					"Vertical Grip",
@@ -446,15 +392,10 @@
 					"Flashlight",
 					//"Hollow Point",
 					//"Armor Piercing",
-					//"Flechette", // For shotguns.
-					//"Birdshot", // For shotguns.
-					//"Slugs", // For shotguns.
-					//"Extended Magazine", // For AS VAL and SR-3M.
-					//"20rd Drum", // For AA-12.
-					//"50RD Drum", // For M1921[TESTplace]
 					"Default",
 				];
 
+				
 				var userRank = document.getElementById("userRankInput").value;
 				var weaponIsAvailable = false;
 
@@ -463,36 +404,66 @@
 					var primaryActual = primaryWeapons[Math.floor(Math.random() * primaryWeapons.length)];
 
 					var primaryWeaponWithoutRank = primaryActual.slice(3, 999);
+
 					var primaryWeaponRank = primaryActual.slice(0, 3);
+
 					var finalPrimaryWeaponRank = parseInt(primaryWeaponRank, 10);
 
 					if (userRank >= finalPrimaryWeaponRank) {
 						weaponIsAvailable == true;
 
-						var primarySightActual = primaryAttachmentsSight[Math.floor(Math.random() * primaryAttachmentsSight.length)];
-						/*switch (primarySightActual) {
-							case "PU-1 Scope":
-								primaryActual == "Mosin Nagant";
-								break;
-							case "Extended Stock":
-								primaryActual == "SPAS-12";
-								break;
-							case "PSO-1M2 Scope":
-								primaryActual == "Dragunov SVDS";
-								break;
-							case "Half Ring Sight":
-							case "Full Ring Sight":
-								primaryActual == "1858 Carbine";
-								break;
-							default:
-								continue;
-						};*/
-						var primaryBarrelActual = primaryAttachmentsBarrel[Math.floor(Math.random() * primaryAttachmentsBarrel.length)];
-						var primaryUnderBarrelActual = primaryAttachmentsUnderBarrel[Math.floor(Math.random() * primaryAttachmentsUnderBarrel.length)];
-						var primaryExtraActual = primaryAttachmentsExtra[Math.floor(Math.random() * primaryAttachmentsExtra.length)];
+						// TODO: Add PSO-1 Scope to various, PU-1 Scope to Mosin, Leupold M8 6x to Steyr, Half/Full Ring to 1858 Carbine.
+						if (primaryActual == "105Dragunov SVDS") {
+							var svds = primaryAttachmentsSight.concat("PSO-1M2 Scope");
+							var primarySightActual = svdsOptic[Math.floor(Math.random() * svds.length)];
+						} else if (primaryActual == "016SCAR-L" || primaryActual == "030SCAR-H" || primaryActual == "032SCAR PDW" || primaryActual == "041AWS" || primaryActual == "072SCAR HAMR" || primaryActual == "082L115A3" || primaryActual == "084TRG-42") {
+							var pmii = primaryAttachmentsSight.concat("PM-II");
+							var primarySightActual = pmii[Math.floor(Math.random() * pmii.length)];
+						} else if (primaryActual == "120SPAS-12") {
+							var spas = primaryAttachmentsSight.concat("Extended Stock");
+							var primarySightActual = spas[Math.floor(Math.random() * spas.length)];
+						} else {
+							var primarySightActual = primaryAttachmentsSight[Math.floor(Math.random() * primaryAttachmentsSight.length)];
+						};
 
+						// TODO: Restrict weapons where they only have the Flash Hider, Compensator, or Muzzle Brake.
+						if (primaryActual == "015AS VAL" || primaryActual == "041AWS" || primaryActual == "046VSS Vintorez" || primaryActual == "060MP5SD" || primaryActual == "062Honey Badger" || primaryActual == "079Groza-4" || primaryActual == "086MC51SD" || primaryActual == "125KAC SRR") {
+							var primaryBarrelActual = "N/A";
+						} else if (primaryActual == "000MP5K" || primaryActual == "006UMP45" || primaryActual == "009MP7" || primaryActual == "023MAC10" || primaryActual == "024P90" || primaryActual == "040MP5" || primaryActual == "049Colt SMG 635" || primaryActual == "053L2A3" || primaryActual == "066MP10" || primaryActual == "071M3A1" || primaryActual == "074MP5/10" || primaryActual == "080AUG A3 Para" || primaryActual == "100KRISS Vector" || primaryActual == "107MP-40") {
+							var osprey = primaryAttachmentsBarrel.concat("Osprey Suppressor");
+
+							if (primaryActual == "023MAC10") {
+								var sionics = osprey.concat("Sionics Suppressor");
+								var primaryBarrelActual = sionics[Math.floor(Math.random() * sionics.length)];
+							} else {
+								var primaryBarrelActual = osprey[Math.floor(Math.random() * osprey.length)];
+							}
+						} else {
+							var primaryBarrelActual = primaryAttachmentsBarrel[Math.floor(Math.random() * primaryAttachmentsBarrel.length)];
+						};
+
+						var primaryUnderBarrelActual = primaryAttachmentsUnderBarrel[Math.floor(Math.random() * primaryAttachmentsUnderBarrel.length)];
+
+						if (primaryActual == "001KSG-12" || primaryActual == "011Remington 870" || primaryActual == "024DBV12" || primaryActual == "056KS-23M" || primaryActual == "063Saiga-12" || primaryActual == "081Stevens DB" || primaryActual == "112AA12" || primaryActual == "120SPAS-12") {
+							var shotgunExtra = primaryAttachmentsExtra.concat("Flechette", "Birdshot", "Slugs");
+							
+							if (primaryActual == "112AA12") {
+								var aa12 = shotgunExtra.concat("20rd Drum");
+								var primaryExtraActual = aa12[Math.floor(Math.random() * aa12.length)];
+							} else {
+								var primaryExtraActual = shotgunExtra[Math.floor(Math.random() * shotgunExtra.length)];
+							}
+						} else if (primaryActual == "015AS VAL" || primaryActual == "069SR-3M") {
+							var extExtra = primaryAttachmentsExtra.concat("Extended Magazine");
+							var primaryExtraActual = extExtra[Math.floor(Math.random() * extExtra.length)];
+						} else {
+							var primaryExtraActual = primaryAttachmentsExtra[Math.floor(Math.random() * primaryAttachmentsExtra.length)];
+						};
+						
 						var primaryFinal = primaryWeaponWithoutRank;
+
 						var primaryFinalAttachments = "[ " + primarySightActual + ", " + primaryBarrelActual + ", " + primaryUnderBarrelActual + ", " + primaryExtraActual + " ]";
+
 						document.getElementById("num1").textContent = primaryFinal;
 						document.getElementById("num1a").textContent = primaryFinalAttachments;
 						console.log(primaryFinal);
@@ -506,6 +477,7 @@
 					}
 				}
 			};
+
 			function randomSecondaryGen() {
 				var secondaryWeapons = [
 					"000M9",
@@ -568,7 +540,6 @@
 					"Flash Hider",
 					"Muzzle Brake",
 					"Compensator",
-					"Osprey Suppressor",
 					"Default",
 				];
 
@@ -576,16 +547,10 @@
 					"Laser",
 					"Green Laser",
 					"Flashlight",
-					"Hollow Point",
-					"Armor Piercing",
+					// "Hollow Point",
+					// "Armor Piercing",
 					"Ballistics Tracker",
-					//"Boom Stock",
-					//"Glock Stock",
-					//"33rd Magazine",
-					//"Flechette",
-					//"Birdshot",
-					//"Slugs",
-					"None",
+					"Default",
 				];
 
 				var secondaryActual = "lmao";
@@ -601,11 +566,50 @@
 
 					if (userRank >= finalSecondaryWeaponRank) {
 						weaponIsAvailable == true;
-						var secondarySightActual = secondaryAttachmentsSight[Math.floor(Math.random() * secondaryAttachmentsSight.length)];
-						var secondaryBarrelActual = secondaryAttachmentsBarrel[Math.floor(Math.random() * secondaryAttachmentsBarrel.length)];
-						var secondaryExtraActual = secondaryAttachmentsExtra[Math.floor(Math.random() * secondaryAttachmentsExtra.length)];
+
+						if (secondaryActual == "117Obrez") {
+							var pu1Scope = secondaryAttachmentsSight.concat("PU-1 Scope");
+							var secondarySightActual = pu1Scope[Math.floor(Math.random() * pu1Scope.length)];
+						} else {
+							var secondarySightActual = secondaryAttachmentsSight[Math.floor(Math.random() * secondaryAttachmentsSight.length)];
+						};
+
+						if (secondaryActual == "004MP412 REX" || secondaryActual == "018Deagle 44" || secondaryActual == "029Mateba 6" || secondaryActual == "0581858 New Army" || secondaryActual == "083Redhawk 44" || secondaryActual == "090Sawed Off") {
+							var secondaryNoSuppressor = [
+								"Flash Hider",
+								"Compensator",
+								"Muzzle Brake",
+								"Default",
+							];
+							var secondaryBarrelActual = secondaryNoSuppressor[Math.floor(Math.random() * secondaryNoSuppressor.length)];
+
+						} else {
+							var secondaryBarrelActual = secondaryAttachmentsBarrel[Math.floor(Math.random() * secondaryAttachmentsBarrel.length)];
+						};
+
+						if (secondaryActual == "000Glock 17" || secondaryActual == "017Glock 18") {
+							var glockExtra = secondaryAttachmentsExtra.concat("Glock Stock", "33rd Magazine");
+							
+							var secondaryExtraActual = glockExtra[Math.floor(Math.random() * glockExtra.length)];
+
+						} else if (secondaryActual == "036Serbu Shotgun" || secondaryActual == "090Sawed Off") {
+							var secShotExtra = secondaryAttachmentsExtra.concat("Flechette", "Birdshot", "Slugs");
+
+							if (secondaryActual == "090Sawed Off") {
+								var BoomStock = secShotExtra.concat("Boom Stock");
+
+								var secondaryExtraActual = BoomStock[Math.floor(Math.random() * BoomStock.length)];
+							} else {
+								var secondaryExtraActual = secShotExtra[Math.floor(Math.random() * secShotExtra.length)];
+							}
+						} else {
+							var secondaryExtraActual = secondaryAttachmentsExtra[Math.floor(Math.random() * secondaryAttachmentsExtra.length)];
+						}
+						
 						var secondaryFinal = secondaryWeaponWithoutRank;
+
 						var secondaryFinalAttachments = "[ " + secondarySightActual + ", " + secondaryBarrelActual + ", " + secondaryExtraActual + " ]";
+						
 						document.getElementById("num2").textContent = secondaryFinal;
 						document.getElementById("num2a").textContent = secondaryFinalAttachments;
 						console.log(secondaryFinal);
@@ -635,15 +639,13 @@
 	<body onload="toggle_visibility('popupBoxOnePosition');">
 		<main>
 			<div class="heading">
-				<h1>PF Loadout Randomizer (WIP)</h1><img src="image/pika.png" class="test" alt="Pika!" title="Pika!" height="42" width="42" style="float:right; position:fixed; right:10px; top:10px;" />
+				<h1>PF Loadout Randomizer (WIP)</h1><img src="pika.png" class="test" alt="Pika!" title="Pika!" height="42" width="42" style="float:right; position:fixed; right:10px; top:10px;" />
 				<h5>Accurate as of PF version <a target="_blank" href="https://roblox-phantom-forces.fandom.com/wiki/Change_Log" title="View change log">4.5.0b</a></h5>
 			</div>
 
-			<section class="container" style="margin-bottom:20em!important;">
+			<section class="container" style="margin-bottom:10em !important;">
 				<div class="a">
-					<h1>
-						Your Rank:
-					</h1>
+					<h1>Your Rank:</h1>
 					<input type="number" id="userRankInput" value="150" min="0" title="Select rank here." />
 					<h3 style="margin-bottom:0.35em;">
 						Select your melees:
@@ -651,7 +653,6 @@
 					<h2 style="margin-top:0; margin-bottom:0.5em;">
 						---------------
 					</h2>
-					<h5 style="margin-bottom:0.2em;">One Hand Blades</h5>
 					<input type="checkbox" id="cleaver" value="1" title="Cleaver" /> <span style="font-family:sans-serif;">Cleaver</span>
 					<br />
 					<input type="checkbox" id="icePick" value="1" title="Ice Pick" /> <span style="font-family:sans-serif;">Ice Pick</span>
@@ -668,8 +669,6 @@
 					<br />
 					<input type="checkbox" id="tacticalSpatula" value="1" title="Tactical Spatula" /> <span style="font-family:sans-serif;">Tactical Spatula</span>
 					<br />
-					<br />
-					<h5 style="margin-bottom:0.2em;">Two Hand Blades</h5>
 					<input type="checkbox" id="chosenOne" value="1" title="Chosen One" /> <span style="font-family:sans-serif;">Chosen One</span>
 					<br />
 					<input type="checkbox" id="hattori" value="1" title="Hattori" /> <span style="font-family:sans-serif;">Hattori</span>
@@ -678,8 +677,6 @@
 					<br />
 					<input type="checkbox" id="longsword" value="1" title="Longsword" /> <span style="font-family:sans-serif;">Longsword</span>
 					<br />
-					<br />
-					<h5 style="margin-bottom:0.2em;">One Hand Blunts</h5>
 					<input type="checkbox" id="brassKnuckle" value="1" title="Brass Knuckle" /> <span style="font-family:sans-serif;">Brass Knuckle</span>
 					<br />
 					<input type="checkbox" id="fryingPan" value="1" title="Frying Pan" /> <span style="font-family:sans-serif;">Frying Pan</span>
@@ -692,8 +689,6 @@
 					<br />
 					<input type="checkbox" id="nightstick" value="1" title="Nightstick" /> <span style="font-family:sans-serif;">Nightstick</span>
 					<br />
-					<br />
-					<h5 style="margin-bottom:0.2em;">Two Hand Blunts</h5>
 					<input type="checkbox" id="baseballBat" value="1" title="Baseball Bat" /> <span style="font-family:sans-serif;">Baseball Bat</span>
 					<br />
 					<input type="checkbox" id="sledgeHammer" value="1" title="Sledge Hammer" /> <span style="font-family:sans-serif;">Sledge Hammer</span>
@@ -773,81 +768,5 @@
 				<path d="M 13.824,0 C 6.18624,0 0,6.18624 0,13.824 c 0,6.11712 3.95712,11.28384 9.45216,13.11552 0.6912,0.12096 0.9504,-0.29376 0.9504,-0.65664 0,-0.32832 -0.0173,-1.41696 -0.0173,-2.57472 C 6.91198,24.34752 6.01342,22.86144 5.73694,22.08384 5.58142,21.6864 4.9075,20.45952 4.31998,20.1312 3.83614,19.872 3.14494,19.23264 4.30268,19.21536 c 1.08864,-0.0173 1.86624,1.00224 2.12544,1.41696 1.24416,2.09088 3.23136,1.50336 4.02624,1.14048 0.12096,-0.89856 0.48384,-1.50336 0.88128,-1.84896 -3.07584,-0.3456 -6.28992,-1.53792 -6.28992,-6.8256 0,-1.50336 0.53568,-2.74752 1.41696,-3.7152 C 6.32444,9.03744 5.8406,7.62048 6.60092,5.71968 c 0,0 1.15776,-0.36288 3.8016,1.41696 1.10592,-0.31104 2.28096,-0.46656 3.456,-0.46656 1.17504,0 2.35008,0.15552 3.456,0.46656 2.64384,-1.79712 3.8016,-1.41696 3.8016,-1.41696 0.76032,1.9008 0.27648,3.31776 0.13824,3.66336 0.88128,0.96768 1.41696,2.19456 1.41696,3.7152 0,5.30496 -3.23136,6.48 -6.3072,6.8256 0.50112,0.432 0.93312,1.26144 0.93312,2.55744 0,1.84896 -0.0173,3.33504 -0.0173,3.8016 0,0.36288 0.2592,0.79488 0.9504,0.65664 5.46048,-1.83168 9.4176,-7.01568 9.4176,-13.11552 C 27.64794,6.18624 21.4617,0 13.82394,0 Z" id="path2" inkscape:connector-curvature="0" style="clip-rule:evenodd;fill:#ffffff;fill-rule:evenodd;stroke-width:1.72800004" />
 			</svg>
 		</a>
-		<!--table-layout:fixed; padding:10px initial;-->
-		<!--<table align="center" height="40" width="40" style="font-family:'Montserrat'; width:100%; text-align:center; border:4px outset white; vertical-align:middle; border-collapse:separate; table-layout:fixed; box-sizing:content-box;">
-			<thead>
-				<tr>
-					<th colspan="9" align="center" style="border:3px inset white; font-size:16pt; vertical-align:middle;">
-						StyLiS Links
-					</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td style="border:3px solid white; width:6.25%; height:6.25%;">
-						<a href="https://www.roblox.com/games/292439477" target="_blank" title="Game">
-							<img src="image/game.png" align="center" alt="Game" height="36" width="36" style="padding-top:0.2em; padding-bottom:0.2em; padding-left:0.2em;" />
-						</a>
-					</td>
-					<td style="border:3px solid white; width:6.25%; height:6.25%;">
-						<a href="https://www.roblox.com/groups/group.aspx?gid=1103278" target="_blank" title="Group">
-							<img src="image/group.png" alt="Group" height="36" width="36" />
-						</a>
-					</td>
-					<td style="border:3px solid white; width:6.25%; height:6.25%;">
-						<a href="https://www.roblox.com/games/299659045/test-place" target="_blank" title="Test Place">
-							<img src="image/pika.png" alt="Test Place" height="36" width="36" />
-						</a>
-					</td>
-					<td style="border:3px solid white; width:6.25%; height:6.25%;">
-						<a href="discord.gg/stylis" title="StyLiS Discord" target="_blank" alt="Discord">
-							<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="30" height="34.285713" viewBox="0 0 30 34.285713" version="1.1" preserveAspectRatio="xMidYMid" id="svg6" sodipodi:docname="discord-seeklogo.com.svg" inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
-								<metadata id="metadata12">
-									<rdf:RDF>
-										<cc:Work rdf:about="">
-											<dc:format>image/svg+xml</dc:format>
-											<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-										</cc:Work>
-									</rdf:RDF>
-								</metadata>
-								<defs id="defs10" />
-								<sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="1920" inkscape:window-height="1001" id="namedview8" showgrid="false" inkscape:zoom="12.887372" inkscape:cx="-2.142878" inkscape:cy="18.215828" inkscape:window-x="-9" inkscape:window-y="-9" inkscape:window-maximized="1" inkscape:current-layer="svg6" />
-								<g id="g4" transform="scale(0.1171875)">
-									<path d="M 226.01143,0 H 29.988571 C 13.458286,0 0,13.458286 0,30.134857 V 227.91314 C 0,244.58971 13.458286,258.048 29.988571,258.048 H 195.87657 l -7.75314,-27.06286 18.72457,17.408 17.70057,16.384 L 256,292.57143 V 30.134857 C 256,13.458286 242.54171,0 226.01143,0 Z m -56.46629,191.04914 c 0,0 -5.26628,-6.29028 -9.65485,-11.84914 19.16342,-5.41257 26.47771,-17.408 26.47771,-17.408 -5.99771,3.94971 -11.70286,6.72914 -16.82286,8.63086 -7.31428,3.072 -14.336,5.12 -21.21143,6.29028 -14.04342,2.63315 -26.91657,1.90172 -37.888,-0.14628 -8.33828,-1.60915 -15.506281,-3.94972 -21.503996,-6.29029 C 85.577143,168.96 81.92,167.35086 78.262857,165.30286 77.824,165.01029 77.385143,164.864 76.946286,164.57143 c -0.292572,-0.14629 -0.438857,-0.29257 -0.585143,-0.43886 -2.633143,-1.46286 -4.096,-2.48686 -4.096,-2.48686 0,0 7.021714,11.70286 25.6,17.26172 -4.388572,5.55886 -9.801143,12.14171 -9.801143,12.14171 -32.329143,-1.024 -44.617143,-22.23543 -44.617143,-22.23543 0,-47.104 21.065143,-85.284567 21.065143,-85.284567 21.065143,-15.798857 41.10629,-15.36 41.10629,-15.36 l 1.46285,1.755428 C 80.749714,77.531429 68.608,89.088 68.608,89.088 c 0,0 3.218286,-1.755429 8.630857,-4.242286 15.652572,-6.875428 28.086853,-8.777143 33.206853,-9.216 0.87772,-0.146285 1.60915,-0.292571 2.48686,-0.292571 8.92343,-1.170286 19.01714,-1.462857 29.54972,-0.292572 13.89714,1.609143 28.81828,5.705143 44.032,14.043429 0,0 -11.55658,-10.971429 -36.42515,-18.578286 l 2.048,-2.340571 c 0,0 20.04115,-0.438857 41.10629,15.36 0,0 21.06514,38.180567 21.06514,85.284567 0,0 -12.43428,21.21143 -44.76343,22.23543 z m -68.02285,-68.31543 c -8.33829,0 -14.921147,7.31429 -14.921147,16.23772 0,8.92343 6.729143,16.23771 14.921147,16.23771 8.33828,0 14.92114,-7.31428 14.92114,-16.23771 0.14628,-8.92343 -6.58286,-16.23772 -14.92114,-16.23772 m 53.39428,0 c -8.33828,0 -14.92114,7.31429 -14.92114,16.23772 0,8.92343 6.72914,16.23771 14.92114,16.23771 8.33829,0 14.92114,-7.31428 14.92114,-16.23771 0,-8.92343 -6.58285,-16.23772 -14.92114,-16.23772" id="path2" inkscape:connector-curvature="0" style="fill:#7289da" />
-								</g>
-							</svg>
-						</a>
-					</td>
-					<td style="border:3px solid white; width:6.25%; height:6.25%;">
-						<a href="https://www.reddit.com/r/PhantomForces" target="_blank" title="Subreddit" alt="Reddit">
-							Reddit
-						</a>
-					</td>
-					<td style="border:3px solid white; width:6.25%; height:6.25%;">
-						<a href="http://forum.stylis-studios.com" target="_blank" title="StyLiS Forum" alt="StyLiS Forum">
-							Forum
-						</a>
-					</td>
-					<td style="border:3px solid white; width:6.25%; height:6.25%;">
-						Twitch
-					</td>
-					<td style="border:3px solid white; width:6.25%; height:6.25%;">
-						Blog
-					</td>
-					<td style="border:3px solid white; width:6.25%; height:6.25%;">
-						<a href="https://roblox-phantom-forces.fandom.com/wiki/Phantom_Forces_Wiki" target="_blank" title="Phantom Forces Wiki">
-							Wiki
-						</a>
-					</td>
-				</tr>
-			</tbody>
-			<tfoot>
-				<tr>
-					<td colspan="9" style="border:3px inset white;">
-						Linkbox is a work-in-progress.
-					</td>
-				</tr>
-			</tfoot>
-		</table>-->
 	</body>
 </html>
