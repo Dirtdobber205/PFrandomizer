@@ -38,127 +38,127 @@ function randomMeleeGen() {
 	//		meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
 	//	};
 
-	if (meleeActual == "Cleaver") {
+	if (meleeActual === "Cleaver") {
 		if (document.getElementById("cleaver").checked == true) {
 			meleeActualFinal = meleeActual;
 		} else {
 			meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
 		}
-	} else if (meleeActual == "Ice Pick") {
+	} else if (meleeActual === "Ice Pick") {
 		if (document.getElementById("icePick").checked == true) {
 			meleeActualFinal = meleeActual;
 		} else {
 			meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
 		}
-	} else if (meleeActual == "Jade Key") {
+	} else if (meleeActual === "Jade Key") {
 		if (document.getElementById("jKey").checked == true) {
 			meleeActualFinal = meleeActual;
 		} else {
 			meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
 		}
-	} else if (meleeActual == "Karambit") {
+	} else if (meleeActual === "Karambit") {
 		if (document.getElementById("karambit").checked == true) {
 			meleeActualFinal = meleeActual;
 		} else {
 			meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
 		}
-	} else if (meleeActual == "Machete") {
+	} else if (meleeActual === "Machete") {
 		if (document.getElementById("machete").checked == true) {
 			meleeActualFinal = meleeActual;
 		} else {
 			meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
 		}
-	} else if (meleeActual == "Mek'Leth") {
+	} else if (meleeActual === "Mek'Leth") {
 		if (document.getElementById("mekleth").checked == true) {
 			meleeActualFinal = meleeActual;
 		} else {
 			meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
 		}
-	} else if (meleeActual == "Tomahawk") {
+	} else if (meleeActual === "Tomahawk") {
 		if (document.getElementById("tomahawk").checked == true) {
 			meleeActualFinal = meleeActual;
 		} else {
 			meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
 		}
-	} else if (meleeActual == "Tactical Spatula") {
+	} else if (meleeActual === "Tactical Spatula") {
 		if (document.getElementById("tacticalSpatula").checked == true) {
 			meleeActualFinal = meleeActual;
 		} else {
 			meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
 		}
-	} else if (meleeActual == "Chosen One") {
+	} else if (meleeActual === "Chosen One") {
 		if (document.getElementById("chosenOne").checked == true) {
 			meleeActualFinal = meleeActual;
 		} else {
 			meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
 		}
-	} else if (meleeActual == "Hattori") {
+	} else if (meleeActual === "Hattori") {
 		if (document.getElementById("hattori").checked == true) {
 			meleeActualFinal = meleeActual;
 		} else {
 			meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
 		}
-	} else if (meleeActual == "Nordic War Axe") {
+	} else if (meleeActual === "Nordic War Axe") {
 		if (document.getElementById("nordicWarAxe").checked == true) {
 			meleeActualFinal = meleeActual;
 		} else {
 			meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
 		}
-	} else if (meleeActual == "Longsword") {
+	} else if (meleeActual === "Longsword") {
 		if (document.getElementById("longsword").checked == true) {
 			meleeActualFinal = meleeActual;
 		} else {
 			meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
 		}
-	} else if (meleeActual == "Brass Knuckle") {
+	} else if (meleeActual === "Brass Knuckle") {
 		if (document.getElementById("brassKnuckle").checked == true) {
 			meleeActualFinal = meleeActual;
 		} else {
 			meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
 		}
-	} else if (meleeActual == "Frying Pan") {
+	} else if (meleeActual === "Frying Pan") {
 		if (document.getElementById("fryingPan").checked == true) {
 			meleeActualFinal = meleeActual;
 		} else {
 			meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
 		}
-	} else if (meleeActual == "ASP Baton") {
+	} else if (meleeActual === "ASP Baton") {
 		if (document.getElementById("aspBaton").checked == true) {
 			meleeActualFinal = meleeActual;
 		} else {
 			meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
 		}
-	} else if (meleeActual == "Stick Grenade") {
+	} else if (meleeActual === "Stick Grenade") {
 		if (document.getElementById("stickGrenade").checked == true) {
 			meleeActualFinal = meleeActual;
 		} else {
 			meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
 		}
-	} else if (meleeActual == "Trench Mace") {
+	} else if (meleeActual === "Trench Mace") {
 		if (document.getElementById("trenchMace").checked == true) {
 			meleeActualFinal = meleeActual;
 		} else {
 			meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
 		}
-	} else if (meleeActual == "Nightstick") {
+	} else if (meleeActual === "Nightstick") {
 		if (document.getElementById("nightstick").checked == true) {
 			meleeActualFinal = meleeActual;
 		} else {
 			meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
 		}
-	} else if (meleeActual == "Baseball Bat") {
+	} else if (meleeActual === "Baseball Bat") {
 		if (document.getElementById("baseballBat").checked == true) {
 			meleeActualFinal = meleeActual;
 		} else {
 			meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
 		}
-	} else if (meleeActual == "Sledge Hammer") {
+	} else if (meleeActual === "Sledge Hammer") {
 		if (document.getElementById("sledgeHammer").checked == true) {
 			meleeActualFinal = meleeActual;
 		} else {
 			meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
 		}
-	} else if (meleeActual == "Crane") {
+	} else if (meleeActual === "Crane") {
 		if (document.getElementById("crane").checked == true) {
 			meleeActualFinal = meleeActual;
 		} else {
@@ -456,6 +456,7 @@ function randomSecondaryGen() {
 		"075SFG-50",
 		"083Redhawk 44",
 		"090Sawed Off",
+		"095Saiga-12U",
 		"106MP1911",
 		"117Obrez",
 		//"XXXJudge",
@@ -548,7 +549,7 @@ function randomSecondaryGen() {
 			if (secondaryActual === "000Glock 17" || secondaryActual === "017Glock 18") {
 				var glock = secondaryAttachmentsExtra.concat("Glock Stock", "33rd Magazine");
 				var secondaryExtraActual = glock[Math.floor(Math.random() * glock.length)];
-			} else if (secondaryActual === "036Serbu Shotgun" || secondaryActual === "090Sawed Off") {
+			} else if (secondaryActual === "036Serbu Shotgun" || secondaryActual === "090Sawed Off" || secondaryActual === "095Saiga-12U") {
 				var secShotExtra = secondaryAttachmentsExtra.concat("Flechette", "Birdshot", "Slugs");
 				if (secondaryActual === "090Sawed Off") {
 					var boomStock = secShotExtra.concat("Boom Stock");
