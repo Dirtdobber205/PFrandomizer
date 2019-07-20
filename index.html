@@ -6,7 +6,6 @@
 		</title>
 		<link rel="icon" href="https://vignette.wikia.nocookie.net/roblox-phantom-forces/images/6/64/Favicon.ico/revision/latest?cb=20180602150450">
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-		<!--<meta http-equiv="refresh" content="0; url=index.html" />-->
 		<link rel="stylesheet" href="style.css">
 		<style>
 			@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
@@ -20,633 +19,20 @@
 					e.style.display = 'block';
 			};
 		</script>
-
-		<!--Need to make the following script its own file to reduce file size for main document.-->
-		<script>
-			function randomMeleeGen() {
-				var meleeWeapons = [
-					"Cleaver",
-					"Ice Pick", // See about adding a rank to this so it does not need to be checked (However this will make it akward for those who got it via case.)
-					"Jade Key",
-					"Karambit",
-					"Machete", // See about adding a rank to this so it does not need to be checked (However this will make it akward for those who got it via case.)
-					"Mek'Leth",
-					"Tomahawk", // See about adding a rank to this so it does not need to be checked (However this will make it akward for those who got it via case.)
-					"Tactical Spatula",
-					"Chosen One",
-					"Hattori",
-					"Nordic War Axe",
-					"Longsword", // See about adding a rank to this so it does not need to be checked (However this will make it akward for those who got it via case.)
-					"Brass Knuckle", // See about adding a rank to this so it does not need to be checked (However this will make it akward for those who got it via case.)
-					"Frying Pan", // See about adding a rank to this so it does not need to be checked (However this will make it akward for those who got it via case.)
-					"ASP Baton",
-					"Stick Grenade",
-					"Trench Mace", // See about adding a rank to this so it does not need to be checked (However this will make it akward for those who got it via case.)
-					"Nightstick", // See about adding a rank to this so it does not need to be checked (However this will make it akward for those who got it via case.)
-					"Baseball Bat", // See about adding a rank to this so it does not need to be checked (However this will make it akward for those who got it via case.)
-					"Sledge Hammer",
-					"Crane",
-				];
-
-				// This var's only purpose is to include the Crowbar as a default weapon. I suck at JS ok?
-				var meleeDefault = [
-					"Knife",
-					"Crowbar",
-				];
-
-				var meleeActual = meleeWeapons[Math.floor(Math.random() * meleeWeapons.length)];
-
-				// Too many else if statements AAAAAAAAAAAAAAAAAA
-				/*if (meleeActual !== "Knife" || meleeActual !== "Crowbar") {
-					meleeActualFinal = meleeActual;
-				} else {
-					meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-				};*/
-				if (meleeActual == "Cleaver") {
-					if (document.getElementById("cleaver").checked == true) {
-						meleeActualFinal = meleeActual;
-					} else {
-						meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-					}
-				} else if (meleeActual == "Ice Pick") {
-					if (document.getElementById("icePick").checked == true) {
-						meleeActualFinal = meleeActual;
-					} else {
-						meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-					}
-				} else if (meleeActual == "Jade Key") {
-					if (document.getElementById("jKey").checked == true) {
-						meleeActualFinal = meleeActual;
-					} else {
-						meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-					}
-				} else if (meleeActual == "Karambit") {
-					if (document.getElementById("karambit").checked == true) {
-						meleeActualFinal = meleeActual;
-					} else {
-						meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-					}
-				} else if (meleeActual == "Machete") {
-					if (document.getElementById("machete").checked == true) {
-						meleeActualFinal = meleeActual;
-					} else {
-						meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-					}
-				} else if (meleeActual == "Mek'Leth") {
-					if (document.getElementById("mekleth").checked == true) {
-						meleeActualFinal = meleeActual;
-					} else {
-						meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-					}
-				} else if (meleeActual == "Tomahawk") {
-					if (document.getElementById("tomahawk").checked == true) {
-						meleeActualFinal = meleeActual;
-					} else {
-						meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-					}
-				} else if (meleeActual == "Tactical Spatula") {
-					if (document.getElementById("tacticalSpatula").checked == true) {
-						meleeActualFinal = meleeActual;
-					} else {
-						meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-					}
-				} else if (meleeActual == "Chosen One") {
-					if (document.getElementById("chosenOne").checked == true) {
-						meleeActualFinal = meleeActual;
-					} else {
-						meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-					}
-				} else if (meleeActual == "Hattori") {
-					if (document.getElementById("hattori").checked == true) {
-						meleeActualFinal = meleeActual;
-					} else {
-						meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-					}
-				} else if (meleeActual == "Nordic War Axe") {
-					if (document.getElementById("nordicWarAxe").checked == true) {
-						meleeActualFinal = meleeActual;
-					} else {
-						meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-					}
-				} else if (meleeActual == "Longsword") {
-					if (document.getElementById("longsword").checked == true) {
-						meleeActualFinal = meleeActual;
-					} else {
-						meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-					}
-				} else if (meleeActual == "Brass Knuckle") {
-					if (document.getElementById("brassKnuckle").checked == true) {
-						meleeActualFinal = meleeActual;
-					} else {
-						meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-					}
-				} else if (meleeActual == "Frying Pan") {
-					if (document.getElementById("fryingPan").checked == true) {
-						meleeActualFinal = meleeActual;
-					} else {
-						meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-					}
-				} else if (meleeActual == "ASP Baton") {
-					if (document.getElementById("aspBaton").checked == true) {
-						meleeActualFinal = meleeActual;
-					} else {
-						meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-					}
-				} else if (meleeActual == "Stick Grenade") {
-					if (document.getElementById("stickGrenade").checked == true) {
-						meleeActualFinal = meleeActual;
-					} else {
-						meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-					}
-				} else if (meleeActual == "Trench Mace") {
-					if (document.getElementById("trenchMace").checked == true) {
-						meleeActualFinal = meleeActual;
-					} else {
-						meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-					}
-				} else if (meleeActual == "Nightstick") {
-					if (document.getElementById("nightstick").checked == true) {
-						meleeActualFinal = meleeActual;
-					} else {
-						meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-					}
-				} else if (meleeActual == "Baseball Bat") {
-					if (document.getElementById("baseballBat").checked == true) {
-						meleeActualFinal = meleeActual;
-					} else {
-						meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];;
-					}
-				} else if (meleeActual == "Sledge Hammer") {
-					if (document.getElementById("sledgeHammer").checked == true) {
-						meleeActualFinal = meleeActual;
-					} else {
-						meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];;
-					}
-				} else if (meleeActual == "Crane") {
-					if (document.getElementById("crane").checked == true) {
-						meleeActualFinal = meleeActual;
-					} else {
-						meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];;
-					}
-				} else {
-					// Should decide from either Knife or Crowbar.
-					meleeActualFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];;
-				};
-
-				document.getElementById("num3").textContent = meleeActualFinal;
-				console.log(meleeActualFinal);
-				return meleeActualFinal;
-			};
-
-			function randomPrimaryGen() {
-				var primaryWeapons = [
-					"000AK12",
-					"000MP5K",
-					"000Colt LMG",
-					"000Intervention",
-					"000M4A1",
-					"001KSG-12",
-					// Gap: Rank 2
-					"003MK11",
-					// Gap: Rank 4
-					// Gap: Rank 5
-					"006UMP45",
-					"007G36C",
-					// Gap: Rank 8
-					"009MP7",
-					"010AN-94",
-					"011Remington 870",
-					"012Remington 700",
-					"013SKS",
-					"014M4",
-					"015AS VAL",
-					"016SCAR-L",
-					// Gap: Rank 17
-					// Gap: Rank 18
-					"019M60",
-					"020AUG A1",
-					"021Beowulf ECR",
-					"022M16A4",
-					"023MAC10",
-					"024P90",
-					"024DBV12",
-					"025G36",
-					// Gap: Rank 26
-					"027AUG HBAR",
-					"028L22",
-					// Gap: Rank 29
-					"030SCAR-H",
-					"031M16A3",
-					"032SCAR PDW",
-					"033MG36",
-					// Gap: Rank 34
-					"035AKU12",
-					// Gap: Rank 36
-					"037RPK12",
-					"038Dragunov SVU",
-					"039AUG A2",
-					"040MP5",
-					"041AWS",
-					"042Groza-1",
-					"043L86 LSW",
-					"044AK12BR",
-					"045FAMAS",
-					"046VSS Vintorez",
-					"047AK47",
-					// Gap: Rank 48
-					"049Colt SMG 635",
-					// Gap: Rank 50
-					"051AK12C",
-					"052AUG A3",
-					"053L2A3",
-					"054RPK",
-					"055L85A2",
-					"056KS-23M",
-					// Gap: Rank 57
-					// Gap: Rank 58
-					"059G3",
-					"059MSG90",
-					"060MP5SD",
-					// Gap: Rank 61
-					"062Honey Badger",
-					"063Saiga-12",
-					"064HK416",
-					"065BFG 50",
-					"066MP10",
-					"067HK21",
-					// Gap: Rank 68
-					"069SR-3M",
-					"070Beowulf TCR",
-					"071M3A1",
-					"072SCAR HAMR",
-					// Gap: Rank 73
-					"074MP5/10",
-					"074AK74",
-					// Gap: Rank 75
-					"076AG-3",
-					// Gap: Rank 77
-					"078SA58 SPR",
-					"079Groza-4",
-					"080AUG A3 Para",
-					"081Stevens DB",
-					"082L115A3",
-					// Gap: Rank 83
-					"084TRG-42",
-					"085SCAR SSR",
-					"086MC51SD",
-					// Gap: Rank 87
-					"088RPK74",
-					"089FAL 50.63 Para",
-					// Gap: Rank 90
-					"091Mosin Nagant",
-					"092PPSH-41",
-					"0931858 Carbine",
-					"094AKM",
-					// Gap: Rank 95
-					"096Henry 45-70",
-					// Gap: Rank 97
-					"098FAL Para Shorty",
-					// Gap: Rank 99
-					"100KRISS Vector",
-					"101MG3KWS",
-					// Gap: Rank 102
-					"103AK103",
-					// Gap: Rank 104
-					"105Dragunov SVDS",
-					"105AK105",
-					// Gap: Rank 106
-					"107MP-40",
-					"107FAL 50.00",
-					"112AA12",
-					"120SPAS-12",
-					"123M231",
-					"125KAC SRR",
-					"150Hecate II",
-					"170M107",
-					"195Steyr Scout",
-					//"XXXJury",
-					//"XXXM1921",
-				];
-
-				// ATTACHMENTS
-				var primaryAttachmentsSight = [
-					"Default",
-					"Z-Point",
-					"EOTech XPS2",
-					"MARS",
-					"EOTech 552",
-					"PK-A",
-					"PKA-S",
-					"Reflex Sight",
-					"Kobra Sight",
-					"Coyote Sight",
-					"C79",
-					"Comp Aimpoint",
-					"M145",
-					"ACOG Scope",
-					"VCOG 6X Scope",
-					"TA01 ACOG",
-					"OKP-7",
-					"DDHB Reflex",
-					"Mini Sight",
-					"TA33 ACOG",
-					"Delta Sight",
-					"TA11 ACOG",
-					"Barska Electro",
-					"Pilad-3",
-					//"PSO-1 Scope", // For AS VAL, SKS, Dragunov SVU, VSS Vintorez, SR-3M, Mosin Nagant?.
-					//"PU-1 Scope", // For Mosin Nagant.
-					//"Leupold M8 6x", // For Steyr Scout.
-					//"Half Ring Sight", // For 1858 Carbine.
-					//"Full Ring Sight", // For 1858 Carbine.
-					//"Lyman Sight", // For M1921[TESTplace]
-				];
-
-				var primaryAttachmentsBarrel = [
-					"Supressor",
-					"R2 Suppressor",
-					"ARS Supressor",
-					"PBS-4 Suppressor",
-					"Flash Hider",
-					"Muzzle Brake",
-					"Compensator",
-					"Default",
-				];
-
-				var primaryAttachmentsUnderBarrel = [
-					"Vertical Grip",
-					"Angled Grip",
-					"Folding Grip",
-					"Stubby Grip",
-					//"Green Laser",
-					"Flashlight",
-					"Laser",
-					"Default",
-				];
-
-				var primaryAttachmentsExtra = [
-					"Green Laser",
-					"Laser",
-					"Ballistics Tracker", // KSG-12 might still not have BT? Should check to confirm.
-					"Canted Iron Sights",
-					"Canted Delta Sights",
-					"Flashlight",
-					//"Hollow Point",
-					//"Armor Piercing",
-					"Default",
-				];
-
-				
-				var userRank = document.getElementById("userRankInput").value;
-				var weaponIsAvailable = false;
-
-				while (weaponIsAvailable == false) {
-
-					var primaryActual = primaryWeapons[Math.floor(Math.random() * primaryWeapons.length)];
-
-					var primaryWeaponWithoutRank = primaryActual.slice(3, 999);
-
-					var primaryWeaponRank = primaryActual.slice(0, 3);
-
-					var finalPrimaryWeaponRank = parseInt(primaryWeaponRank, 10);
-
-					if (userRank >= finalPrimaryWeaponRank) {
-						weaponIsAvailable == true;
-
-						// TODO: Add PSO-1 Scope to various, PU-1 Scope to Mosin, Leupold M8 6x to Steyr, Half/Full Ring to 1858 Carbine.
-						if (primaryActual == "105Dragunov SVDS") {
-							var svds = primaryAttachmentsSight.concat("PSO-1M2 Scope");
-							var primarySightActual = svdsOptic[Math.floor(Math.random() * svds.length)];
-						} else if (primaryActual == "016SCAR-L" || primaryActual == "030SCAR-H" || primaryActual == "032SCAR PDW" || primaryActual == "041AWS" || primaryActual == "072SCAR HAMR" || primaryActual == "082L115A3" || primaryActual == "084TRG-42") {
-							var pmii = primaryAttachmentsSight.concat("PM-II");
-							var primarySightActual = pmii[Math.floor(Math.random() * pmii.length)];
-						} else if (primaryActual == "120SPAS-12") {
-							var spas = primaryAttachmentsSight.concat("Extended Stock");
-							var primarySightActual = spas[Math.floor(Math.random() * spas.length)];
-						} else {
-							var primarySightActual = primaryAttachmentsSight[Math.floor(Math.random() * primaryAttachmentsSight.length)];
-						};
-
-						// TODO: Restrict weapons where they only have the Flash Hider, Compensator, or Muzzle Brake.
-						if (primaryActual == "015AS VAL" || primaryActual == "041AWS" || primaryActual == "046VSS Vintorez" || primaryActual == "060MP5SD" || primaryActual == "062Honey Badger" || primaryActual == "079Groza-4" || primaryActual == "086MC51SD" || primaryActual == "125KAC SRR") {
-							var primaryBarrelActual = "N/A";
-						} else if (primaryActual == "000MP5K" || primaryActual == "006UMP45" || primaryActual == "009MP7" || primaryActual == "023MAC10" || primaryActual == "024P90" || primaryActual == "040MP5" || primaryActual == "049Colt SMG 635" || primaryActual == "053L2A3" || primaryActual == "066MP10" || primaryActual == "071M3A1" || primaryActual == "074MP5/10" || primaryActual == "080AUG A3 Para" || primaryActual == "100KRISS Vector" || primaryActual == "107MP-40") {
-							var osprey = primaryAttachmentsBarrel.concat("Osprey Suppressor");
-
-							if (primaryActual == "023MAC10") {
-								var sionics = osprey.concat("Sionics Suppressor");
-								var primaryBarrelActual = sionics[Math.floor(Math.random() * sionics.length)];
-							} else {
-								var primaryBarrelActual = osprey[Math.floor(Math.random() * osprey.length)];
-							}
-						} else {
-							var primaryBarrelActual = primaryAttachmentsBarrel[Math.floor(Math.random() * primaryAttachmentsBarrel.length)];
-						};
-
-						var primaryUnderBarrelActual = primaryAttachmentsUnderBarrel[Math.floor(Math.random() * primaryAttachmentsUnderBarrel.length)];
-
-						if (primaryActual == "001KSG-12" || primaryActual == "011Remington 870" || primaryActual == "024DBV12" || primaryActual == "056KS-23M" || primaryActual == "063Saiga-12" || primaryActual == "081Stevens DB" || primaryActual == "112AA12" || primaryActual == "120SPAS-12") {
-							var shotgunExtra = primaryAttachmentsExtra.concat("Flechette", "Birdshot", "Slugs");
-							
-							if (primaryActual == "112AA12") {
-								var aa12 = shotgunExtra.concat("20rd Drum");
-								var primaryExtraActual = aa12[Math.floor(Math.random() * aa12.length)];
-							} else {
-								var primaryExtraActual = shotgunExtra[Math.floor(Math.random() * shotgunExtra.length)];
-							}
-						} else if (primaryActual == "015AS VAL" || primaryActual == "069SR-3M") {
-							var extExtra = primaryAttachmentsExtra.concat("Extended Magazine");
-							var primaryExtraActual = extExtra[Math.floor(Math.random() * extExtra.length)];
-						} else {
-							var primaryExtraActual = primaryAttachmentsExtra[Math.floor(Math.random() * primaryAttachmentsExtra.length)];
-						};
-						
-						var primaryFinal = primaryWeaponWithoutRank;
-
-						var primaryFinalAttachments = "[ " + primarySightActual + ", " + primaryBarrelActual + ", " + primaryUnderBarrelActual + ", " + primaryExtraActual + " ]";
-
-						document.getElementById("num1").textContent = primaryFinal;
-						document.getElementById("num1a").textContent = primaryFinalAttachments;
-						console.log(primaryFinal);
-						break;
-					} else if (userRank < 0) {
-						document.getElementById("num1").textContent = "RANK ERROR";
-						document.getElementById("num1a").textContent = "DO NOT PUT NEGATIVE NUMBERS IN RANK";
-						break;
-					} else {
-						continue;
-					}
-				}
-			};
-
-			function randomSecondaryGen() {
-				var secondaryWeapons = [
-					"000M9",
-					"000Glock 17",
-					"004MP412 REX",
-					"008M1911",
-					"017Glock 18",
-					"018Deagle 44",
-					"026M93R",
-					"029Mateba 6",
-					"034M45A1",
-					"036Serbu Shotgun",
-					"050TEC-9",
-					"057Five Seven",
-					"0581858 New Army",
-					"061Zip 22",
-					"075SFG-50",
-					"083Redhawk 44",
-					"090Sawed Off",
-					"106MP1911",
-					"117Obrez",
-					//"XXXJudge",
-					//"XXXExecutioner",
-				];
-
-				var secondaryAttachmentsSight = [
-					"Default",
-					"Z-Point",
-					"EOTech XPS2",
-					"MARS",
-					"EOTech 552",
-					"PK-A",
-					"PKA-S",
-					"Reflex Sight",
-					"Kobra Sight",
-					"Coyote Sight",
-					"C79",
-					"Comp Aimpoint",
-					"M145",
-					"ACOG Scope",
-					"VCOG 6X Scope",
-					"TA01 ACOG",
-					"OKP-7",
-					"DDHB Reflex",
-					"Mini Sight",
-					"TA33 ACOG",
-					"Delta Sight",
-					"TA11 ACOG",
-					"Barska Electro",
-					"Pilad-3",
-					"Half Ring Sight",
-					"Full Ring Sight",
-				];
-
-				var secondaryAttachmentsBarrel = [
-					"Supressor",
-					"R2 Suppressor",
-					"ARS Supressor",
-					"PBS-4 Suppressor",
-					"Flash Hider",
-					"Muzzle Brake",
-					"Compensator",
-					"Default",
-				];
-
-				var secondaryAttachmentsExtra = [
-					"Laser",
-					"Green Laser",
-					"Flashlight",
-					// "Hollow Point",
-					// "Armor Piercing",
-					"Ballistics Tracker",
-					"Default",
-				];
-
-				var secondaryActual = "lmao";
-				var userRank = document.getElementById("userRankInput").value;
-				var weaponIsAvailable = false;
-
-				while (weaponIsAvailable == false) {
-					secondaryActual = secondaryWeapons[Math.floor(Math.random() * secondaryWeapons.length)];
-
-					var secondaryWeaponWithoutRank = secondaryActual.slice(3, 999);
-					var secondaryWeaponRank = secondaryActual.slice(0, 3);
-					var finalSecondaryWeaponRank = parseInt(secondaryWeaponRank, 10);
-
-					if (userRank >= finalSecondaryWeaponRank) {
-						weaponIsAvailable == true;
-
-						if (secondaryActual == "117Obrez") {
-							var pu1Scope = secondaryAttachmentsSight.concat("PU-1 Scope");
-							var secondarySightActual = pu1Scope[Math.floor(Math.random() * pu1Scope.length)];
-						} else {
-							var secondarySightActual = secondaryAttachmentsSight[Math.floor(Math.random() * secondaryAttachmentsSight.length)];
-						};
-
-						if (secondaryActual == "004MP412 REX" || secondaryActual == "018Deagle 44" || secondaryActual == "029Mateba 6" || secondaryActual == "0581858 New Army" || secondaryActual == "083Redhawk 44" || secondaryActual == "090Sawed Off") {
-							var secondaryNoSuppressor = [
-								"Flash Hider",
-								"Compensator",
-								"Muzzle Brake",
-								"Default",
-							];
-							var secondaryBarrelActual = secondaryNoSuppressor[Math.floor(Math.random() * secondaryNoSuppressor.length)];
-
-						} else {
-							var secondaryBarrelActual = secondaryAttachmentsBarrel[Math.floor(Math.random() * secondaryAttachmentsBarrel.length)];
-						};
-
-						if (secondaryActual == "000Glock 17" || secondaryActual == "017Glock 18") {
-							var glockExtra = secondaryAttachmentsExtra.concat("Glock Stock", "33rd Magazine");
-							
-							var secondaryExtraActual = glockExtra[Math.floor(Math.random() * glockExtra.length)];
-
-						} else if (secondaryActual == "036Serbu Shotgun" || secondaryActual == "090Sawed Off") {
-							var secShotExtra = secondaryAttachmentsExtra.concat("Flechette", "Birdshot", "Slugs");
-
-							if (secondaryActual == "090Sawed Off") {
-								var BoomStock = secShotExtra.concat("Boom Stock");
-
-								var secondaryExtraActual = BoomStock[Math.floor(Math.random() * BoomStock.length)];
-							} else {
-								var secondaryExtraActual = secShotExtra[Math.floor(Math.random() * secShotExtra.length)];
-							}
-						} else {
-							var secondaryExtraActual = secondaryAttachmentsExtra[Math.floor(Math.random() * secondaryAttachmentsExtra.length)];
-						}
-						
-						var secondaryFinal = secondaryWeaponWithoutRank;
-
-						var secondaryFinalAttachments = "[ " + secondarySightActual + ", " + secondaryBarrelActual + ", " + secondaryExtraActual + " ]";
-						
-						document.getElementById("num2").textContent = secondaryFinal;
-						document.getElementById("num2a").textContent = secondaryFinalAttachments;
-						console.log(secondaryFinal);
-
-						if (secondaryFinal = null) {
-							throw new TypeError("Something went wrong :(");
-						} else {
-							return secondaryFinal;
-						}
-						break;
-					} else if (userRank < 0) {
-						document.getElementById("num2").textContent = "RANK ERROR";
-						document.getElementById("num2a").textContent = "DO NOT PUT NEGATIVE NUMBERS IN RANK";
-						break;
-					} else {
-						continue;
-					}
-				}
-			};
-			function randomLoadout() {
-				randomPrimaryGen();
-				randomSecondaryGen();
-				randomMeleeGen();
-			};
-		</script>
+		<script type="text/javascript" src="loadoutGen.js"></script>
 	</head>
 	<body onload="toggle_visibility('popupBoxOnePosition');">
 		<main>
 			<div class="heading">
-				<h1>PF Loadout Randomizer (WIP)</h1><img src="pika.png" class="test" alt="Pika!" title="Pika!" height="42" width="42" style="float:right; position:fixed; right:10px; top:10px;" />
-				<h5>Accurate as of PF version <a target="_blank" href="https://roblox-phantom-forces.fandom.com/wiki/Change_Log" title="View change log">4.5.0b</a></h5>
+				<h1>PF Loadout Randomizer (WIP)</h1><img src="image/pika.png" class="test" alt="Pika!" title="Pika!" height="42" width="42" style="float:right; position:fixed; right:10px; top:10px;" />
+				<h5>Accurate as of PF version <a target="_blank" href="https://roblox-phantom-forces.fandom.com/wiki/Change_Log" title="View change log">4.6.1</a></h5>
 			</div>
-
 			<section class="container" style="margin-bottom:10em !important;">
 				<div class="a">
-					<h1>Your Rank:</h1> <input type="number" id="userRankInput" value="150" min="0" title="Select rank here." />
+					<h1>
+						Your Rank:
+					</h1>
+					<input type="number" id="userRankInput" value="150" min="0" title="Input rank here." />
 					<h3 style="margin-bottom:0.35em;">
 						Select your melees:
 					</h3>
@@ -659,7 +45,7 @@
 					<br />
 					<input type="checkbox" id="jKey" value="1" title="Jade Key" /> <span style="font-family:sans-serif;">Jade Key</span>
 					<br />
-					<input type="checkbox" id="karambitR" value="1" title="Karambit" /> <span style="font-family:sans-serif;">Karambit</span>
+					<input type="checkbox" id="karambit" value="1" title="Karambit" /> <span style="font-family:sans-serif;">Karambit</span>
 					<br />
 					<input type="checkbox" id="machete" value="1" title="Machete" /> <span style="font-family:sans-serif;">Machete</span>
 					<br />
@@ -696,10 +82,8 @@
 					<input type="checkbox" id="crane" value="1" title="Crane" /> <span style="font-family:sans-serif;">Crane</span>
 					<br />
 					<br />
-					<button class="mdc-button" onclick="randomLoadout()" title="Click to receive your loadout!">
-						<span class="mdc-button__label">
-							Generate Loadout
-						</span>
+					<button onclick="randomLoadout()" title="Click to receive your loadout!">
+						Generate Loadout
 					</button>
 				</div>
 				<div class="b">
@@ -745,28 +129,30 @@
 					</p>
 				</div>
 			</section>
+		</main>
+		<footer>
 			<h5 align=center style="margin-bottom:10px;">
 				<a target="_blank" href="https://roblox-phantom-forces.fandom.com/wiki/Weaponry" title="PFW weaponry page">Weaponry Reference</a> | <a target="_blank" href="https://roblox-phantom-forces.fandom.com/wiki/Attachments" title="PFW attachments page">Attachment Reference</a>
 			</h5>
-			<h5 align=center style="font-family:'Times New Roman', Times, serif;">
+			<h5 align="center" style="font-family:'Times New Roman', Times, serif;">
 				Made by @Duo#0012
 			</h5>
-		</main>
-		<a target="_blank" href="https://github.com/DuoDeca/PFrandomizer" title="View the GitHub repository here!" style="float:right; position:relative; bottom:50px;">
-			<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="27.64794" height="26.965927" viewBox="0 0 27.647939 26.965927" version="1.1" id="svg4" sodipodi:docname="github.svg" style="fill:white" inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
-				<metadata id="metadata10">
-					<rdf:RDF>
-						<cc:Work rdf:about="">
-							<dc:format>image/svg+xml</dc:format>
-							<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-							<dc:title></dc:title>
-						</cc:Work>
-					</rdf:RDF>
-				</metadata>
-				<defs id="defs8" />
-				<sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="1920" inkscape:window-height="1001" id="namedview6" showgrid="false" inkscape:pagecheckerboard="true" inkscape:zoom="20.85965" inkscape:cx="3.5126982" inkscape:cy="21.986046" inkscape:window-x="-9" inkscape:window-y="-9" inkscape:window-maximized="1" inkscape:current-layer="svg4" />
-				<path d="M 13.824,0 C 6.18624,0 0,6.18624 0,13.824 c 0,6.11712 3.95712,11.28384 9.45216,13.11552 0.6912,0.12096 0.9504,-0.29376 0.9504,-0.65664 0,-0.32832 -0.0173,-1.41696 -0.0173,-2.57472 C 6.91198,24.34752 6.01342,22.86144 5.73694,22.08384 5.58142,21.6864 4.9075,20.45952 4.31998,20.1312 3.83614,19.872 3.14494,19.23264 4.30268,19.21536 c 1.08864,-0.0173 1.86624,1.00224 2.12544,1.41696 1.24416,2.09088 3.23136,1.50336 4.02624,1.14048 0.12096,-0.89856 0.48384,-1.50336 0.88128,-1.84896 -3.07584,-0.3456 -6.28992,-1.53792 -6.28992,-6.8256 0,-1.50336 0.53568,-2.74752 1.41696,-3.7152 C 6.32444,9.03744 5.8406,7.62048 6.60092,5.71968 c 0,0 1.15776,-0.36288 3.8016,1.41696 1.10592,-0.31104 2.28096,-0.46656 3.456,-0.46656 1.17504,0 2.35008,0.15552 3.456,0.46656 2.64384,-1.79712 3.8016,-1.41696 3.8016,-1.41696 0.76032,1.9008 0.27648,3.31776 0.13824,3.66336 0.88128,0.96768 1.41696,2.19456 1.41696,3.7152 0,5.30496 -3.23136,6.48 -6.3072,6.8256 0.50112,0.432 0.93312,1.26144 0.93312,2.55744 0,1.84896 -0.0173,3.33504 -0.0173,3.8016 0,0.36288 0.2592,0.79488 0.9504,0.65664 5.46048,-1.83168 9.4176,-7.01568 9.4176,-13.11552 C 27.64794,6.18624 21.4617,0 13.82394,0 Z" id="path2" inkscape:connector-curvature="0" style="clip-rule:evenodd;fill:#ffffff;fill-rule:evenodd;stroke-width:1.72800004" />
-			</svg>
-		</a>
+			<a target="_blank" href="https://github.com/DuoDeca/PFrandomizer" title="View the GitHub repository here!" style="float:right; position:relative; bottom:50px;">
+				<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="27.64794" height="26.965927" viewBox="0 0 27.647939 26.965927" version="1.1" id="svg4" sodipodi:docname="github.svg" style="fill:white" inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+					<metadata id="metadata10">
+						<rdf:RDF>
+							<cc:Work rdf:about="">
+								<dc:format>image/svg+xml</dc:format>
+								<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"></dc:type>
+								<dc:title></dc:title>
+							</cc:Work>
+						</rdf:RDF>
+					</metadata>
+					<defs id="defs8" />
+					<sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="1920" inkscape:window-height="1001" id="namedview6" showgrid="false" inkscape:pagecheckerboard="true" inkscape:zoom="20.85965" inkscape:cx="3.5126982" inkscape:cy="21.986046" inkscape:window-x="-9" inkscape:window-y="-9" inkscape:window-maximized="1" inkscape:current-layer="svg4"></sodipodi:namedview>
+					<path d="M 13.824,0 C 6.18624,0 0,6.18624 0,13.824 c 0,6.11712 3.95712,11.28384 9.45216,13.11552 0.6912,0.12096 0.9504,-0.29376 0.9504,-0.65664 0,-0.32832 -0.0173,-1.41696 -0.0173,-2.57472 C 6.91198,24.34752 6.01342,22.86144 5.73694,22.08384 5.58142,21.6864 4.9075,20.45952 4.31998,20.1312 3.83614,19.872 3.14494,19.23264 4.30268,19.21536 c 1.08864,-0.0173 1.86624,1.00224 2.12544,1.41696 1.24416,2.09088 3.23136,1.50336 4.02624,1.14048 0.12096,-0.89856 0.48384,-1.50336 0.88128,-1.84896 -3.07584,-0.3456 -6.28992,-1.53792 -6.28992,-6.8256 0,-1.50336 0.53568,-2.74752 1.41696,-3.7152 C 6.32444,9.03744 5.8406,7.62048 6.60092,5.71968 c 0,0 1.15776,-0.36288 3.8016,1.41696 1.10592,-0.31104 2.28096,-0.46656 3.456,-0.46656 1.17504,0 2.35008,0.15552 3.456,0.46656 2.64384,-1.79712 3.8016,-1.41696 3.8016,-1.41696 0.76032,1.9008 0.27648,3.31776 0.13824,3.66336 0.88128,0.96768 1.41696,2.19456 1.41696,3.7152 0,5.30496 -3.23136,6.48 -6.3072,6.8256 0.50112,0.432 0.93312,1.26144 0.93312,2.55744 0,1.84896 -0.0173,3.33504 -0.0173,3.8016 0,0.36288 0.2592,0.79488 0.9504,0.65664 5.46048,-1.83168 9.4176,-7.01568 9.4176,-13.11552 C 27.64794,6.18624 21.4617,0 13.82394,0 Z" id="path2" inkscape:connector-curvature="0" style="clip-rule:evenodd; fill:#ffffff; fill-rule:evenodd; stroke-width:2;"></path>
+				</svg>
+			</a>
+		</footer>
 	</body>
 </html>
