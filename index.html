@@ -10,38 +10,32 @@
 		<style>
 			@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 		</style>
+		<script src="loadoutGen.js"></script>
 		<script type="text/javascript">
 			function toggle_visibility(id) {
-				var e = document.getElementById(id);
+				const e = document.getElementById(id);
 				if (e.style.display == 'block')
 					e.style.display = 'none';
 				else
 					e.style.display = 'block';
 			};
 		</script>
-		<script type="text/javascript" src="loadoutGen.js"></script>
 	</head>
 	<body onload="toggle_visibility('popupBoxOnePosition');">
 		<main>
 			<div class="heading">
-				<h1>PF Loadout Randomizer (WIP)</h1><img src="pika.png" class="test" title="Pika!" height="42" width="42" style="float:right; position:fixed; right:10px; top:10px;" />
-				<h5>Accurate as of PF version <a target="_blank" href="https://roblox-phantom-forces.fandom.com/wiki/Change_Log" title="View change log">4.6.1</a></h5>
+				<h1>PF Loadout Randomizer (WIP)</h1>
+				<h5>Accurate as of PF version <a target="_blank" href="https://roblox-phantom-forces.fandom.com/wiki/Change_Log" title="View change log">4.7.0</a></h5>
 			</div>
+
 			<section class="container" style="margin-bottom:10em !important;">
 				<div class="a">
-					<h1>
-						Your Rank:
-					</h1>
-					<input type="number" id="userRankInput" value="150" min="0" title="Input rank here." />
-					<h3 style="margin-bottom:0.35em;">
-						Select your melees:
-					</h3>
-					<h2 style="margin-top:0; margin-bottom:0.5em;">
-						---------------
-					</h2>
+					<h1>Your Rank:</h1> <input type="number" id="userRankInput" value="150" min="0" title="Select rank here." />
+					<h3 style="margin-bottom:0.35em;">Select your melees:</h3>
+					<h2 style="margin-top:0; margin-bottom:0.5em;">---------------</h2>
 					<input type="checkbox" id="cleaver" value="1" title="Cleaver" /> <span style="font-family:sans-serif;">Cleaver</span>
 					<br />
-					<input type="checkbox" id="icePick" value="1" title="Ice Pick" /> <span style="font-family:sans-serif;">Ice Pick</span>
+					<input type="checkbox" id="ice" value="1" title="Ice Pick" /> <span style="font-family:sans-serif;">Ice Pick</span>
 					<br />
 					<input type="checkbox" id="jKey" value="1" title="Jade Key" /> <span style="font-family:sans-serif;">Jade Key</span>
 					<br />
@@ -53,104 +47,62 @@
 					<br />
 					<input type="checkbox" id="tomahawk" value="1" title="Tomahawk" /> <span style="font-family:sans-serif;">Tomahawk</span>
 					<br />
-					<input type="checkbox" id="tacticalSpatula" value="1" title="Tactical Spatula" /> <span style="font-family:sans-serif;">Tactical Spatula</span>
+					<input type="checkbox" id="spatula" value="1" title="Tactical Spatula" /> <span style="font-family:sans-serif;">Tactical Spatula</span>
 					<br />
-					<input type="checkbox" id="chosenOne" value="1" title="Chosen One" /> <span style="font-family:sans-serif;">Chosen One</span>
+					<input type="checkbox" id="chosen" value="1" title="Chosen One" /> <span style="font-family:sans-serif;">Chosen One</span>
 					<br />
 					<input type="checkbox" id="hattori" value="1" title="Hattori" /> <span style="font-family:sans-serif;">Hattori</span>
 					<br />
-					<input type="checkbox" id="nordicWarAxe" value="1" title="Nordic War Axe" /> <span style="font-family:sans-serif;">Nordic War Axe</span>
+					<input type="checkbox" id="nordic" value="1" title="Nordic War Axe" /> <span style="font-family:sans-serif;">Nordic War Axe</span>
 					<br />
-					<input type="checkbox" id="longsword" value="1" title="Longsword" /> <span style="font-family:sans-serif;">Longsword</span>
+					<input type="checkbox" id="long" value="1" title="Longsword" /> <span style="font-family:sans-serif;">Longsword</span>
 					<br />
-					<input type="checkbox" id="brassKnuckle" value="1" title="Brass Knuckle" /> <span style="font-family:sans-serif;">Brass Knuckle</span>
+					<input type="checkbox" id="brass" value="1" title="Brass Knuckle" /> <span style="font-family:sans-serif;">Brass Knuckle</span>
 					<br />
-					<input type="checkbox" id="fryingPan" value="1" title="Frying Pan" /> <span style="font-family:sans-serif;">Frying Pan</span>
+					<input type="checkbox" id="pan" value="1" title="Frying Pan" /> <span style="font-family:sans-serif;">Frying Pan</span>
 					<br />
-					<input type="checkbox" id="aspBaton" value="1" title="ASP Baton" /> <span style="font-family:sans-serif;">ASP Baton</span>
+					<input type="checkbox" id="baton" value="1" title="ASP Baton" /> <span style="font-family:sans-serif;">ASP Baton</span>
 					<br />
-					<input type="checkbox" id="stickGrenade" value="1" title="Stick Grenade" /> <span style="font-family:sans-serif;">Stick Grenade</span>
+					<input type="checkbox" id="stick" value="1" title="Stick Grenade" /> <span style="font-family:sans-serif;">Stick Grenade</span>
 					<br />
-					<input type="checkbox" id="trenchMace" value="1" title="Trench Mace" /> <span style="font-family:sans-serif;">Trench Mace</span>
+					<input type="checkbox" id="trench" value="1" title="Trench Mace" /> <span style="font-family:sans-serif;">Trench Mace</span>
 					<br />
-					<input type="checkbox" id="nightstick" value="1" title="Nightstick" /> <span style="font-family:sans-serif;">Nightstick</span>
+					<input type="checkbox" id="night" value="1" title="Nightstick" /> <span style="font-family:sans-serif;">Nightstick</span>
 					<br />
-					<input type="checkbox" id="baseballBat" value="1" title="Baseball Bat" /> <span style="font-family:sans-serif;">Baseball Bat</span>
+					<input type="checkbox" id="baseball" value="1" title="Baseball Bat" /> <span style="font-family:sans-serif;">Baseball Bat</span>
 					<br />
-					<input type="checkbox" id="sledgeHammer" value="1" title="Sledge Hammer" /> <span style="font-family:sans-serif;">Sledge Hammer</span>
+					<input type="checkbox" id="sledge" value="1" title="Sledge Hammer" /> <span style="font-family:sans-serif;">Sledge Hammer</span>
 					<br />
 					<input type="checkbox" id="crane" value="1" title="Crane" /> <span style="font-family:sans-serif;">Crane</span>
 					<br />
 					<br />
-					<button onclick="randomLoadout()" title="Click to receive your loadout!">
-						Generate Loadout
-					</button>
+					<button onclick="randomLoadout()" title="Click to receive your loadout!">Generate Loadout</button>
 				</div>
 				<div class="b">
-					<h2>
-						Primary:
-					</h2>
-					<h3 id="num1">
-						&nbsp;
-					</h3>
-					<p id="num1a">
-						&nbsp;
-					</p>
-					<h2>
-						----------------
-					</h2>
-					<h2>
-						Secondary:
-					</h2>
-					<h3 id="num2">
-						&nbsp;
-					</h3>
-					<p id="num2a">
-						&nbsp;
-					</p>
-					<h2>
-						----------------
-					</h2>
-					<h2>
-						Melee:
-					</h2>
-					<h3 id="num3">
-						&nbsp;
-					</h3>
-					<h2>
-						----------------
-					</h2>
-					<p>
-						If you do not own a specific attachment or the attachments
-						<br />
-						outputted are incompatible with the weapon provided,
-						<br />
-						just use no attachment for that specific slot.
-					</p>
+					<h2>Primary:</h2>
+					<h3 id="num1">&nbsp;</h3>
+					<p id="num1a">&nbsp;</p>
+					<h2>----------------</h2>
+					<h2>Secondary:</h2>
+					<h3 id="num2">&nbsp;</h3>
+					<p id="num2a">&nbsp;</p>
+					<h2>----------------</h2>
+					<h2>Melee:</h2>
+					<h3 id="num3">&nbsp;</h3>
+					<h2>----------------</h2>
+					<p id="num4">&nbsp;</p>
 				</div>
 			</section>
-		</main>
-		<footer>
-			<h5 align=center style="margin-bottom:10px;">
+			<h5 align="center" style="margin-bottom:10px;">
 				<a target="_blank" href="https://roblox-phantom-forces.fandom.com/wiki/Weaponry" title="PFW weaponry page">Weaponry Reference</a> | <a target="_blank" href="https://roblox-phantom-forces.fandom.com/wiki/Attachments" title="PFW attachments page">Attachment Reference</a>
 			</h5>
-			<h5 align="center" style="font-family:'Times New Roman', Times, serif;">
-				Made by @Duo#0012
-			</h5>
+			<h5 align="center" style="font-family:'Times New Roman', Times, serif;">Made by @Duo#0012</h5>
+		</main>
+		<footer>
 			<a target="_blank" href="https://github.com/DuoDeca/PFrandomizer" title="View the GitHub repository here!" style="float:right; position:relative; bottom:50px;">
 				<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="27.64794" height="26.965927" viewBox="0 0 27.647939 26.965927" version="1.1" id="svg4" sodipodi:docname="github.svg" style="fill:white" inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
-					<metadata id="metadata10">
-						<rdf:RDF>
-							<cc:Work rdf:about="">
-								<dc:format>image/svg+xml</dc:format>
-								<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"></dc:type>
-								<dc:title></dc:title>
-							</cc:Work>
-						</rdf:RDF>
-					</metadata>
-					<defs id="defs8" />
-					<sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="1920" inkscape:window-height="1001" id="namedview6" showgrid="false" inkscape:pagecheckerboard="true" inkscape:zoom="20.85965" inkscape:cx="3.5126982" inkscape:cy="21.986046" inkscape:window-x="-9" inkscape:window-y="-9" inkscape:window-maximized="1" inkscape:current-layer="svg4"></sodipodi:namedview>
-					<path d="M 13.824,0 C 6.18624,0 0,6.18624 0,13.824 c 0,6.11712 3.95712,11.28384 9.45216,13.11552 0.6912,0.12096 0.9504,-0.29376 0.9504,-0.65664 0,-0.32832 -0.0173,-1.41696 -0.0173,-2.57472 C 6.91198,24.34752 6.01342,22.86144 5.73694,22.08384 5.58142,21.6864 4.9075,20.45952 4.31998,20.1312 3.83614,19.872 3.14494,19.23264 4.30268,19.21536 c 1.08864,-0.0173 1.86624,1.00224 2.12544,1.41696 1.24416,2.09088 3.23136,1.50336 4.02624,1.14048 0.12096,-0.89856 0.48384,-1.50336 0.88128,-1.84896 -3.07584,-0.3456 -6.28992,-1.53792 -6.28992,-6.8256 0,-1.50336 0.53568,-2.74752 1.41696,-3.7152 C 6.32444,9.03744 5.8406,7.62048 6.60092,5.71968 c 0,0 1.15776,-0.36288 3.8016,1.41696 1.10592,-0.31104 2.28096,-0.46656 3.456,-0.46656 1.17504,0 2.35008,0.15552 3.456,0.46656 2.64384,-1.79712 3.8016,-1.41696 3.8016,-1.41696 0.76032,1.9008 0.27648,3.31776 0.13824,3.66336 0.88128,0.96768 1.41696,2.19456 1.41696,3.7152 0,5.30496 -3.23136,6.48 -6.3072,6.8256 0.50112,0.432 0.93312,1.26144 0.93312,2.55744 0,1.84896 -0.0173,3.33504 -0.0173,3.8016 0,0.36288 0.2592,0.79488 0.9504,0.65664 5.46048,-1.83168 9.4176,-7.01568 9.4176,-13.11552 C 27.64794,6.18624 21.4617,0 13.82394,0 Z" id="path2" inkscape:connector-curvature="0" style="clip-rule:evenodd; fill:#ffffff; fill-rule:evenodd; stroke-width:2;"></path>
+					<sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="1920" inkscape:window-height="1001" id="namedview6" showgrid="false" inkscape:pagecheckerboard="true" inkscape:zoom="20.85965" inkscape:cx="3.5126982" inkscape:cy="21.986046" inkscape:window-x="-9" inkscape:window-y="-9" inkscape:window-maximized="1" inkscape:current-layer="svg4" />
+					<path d="M 13.824,0 C 6.18624,0 0,6.18624 0,13.824 c 0,6.11712 3.95712,11.28384 9.45216,13.11552 0.6912,0.12096 0.9504,-0.29376 0.9504,-0.65664 0,-0.32832 -0.0173,-1.41696 -0.0173,-2.57472 C 6.91198,24.34752 6.01342,22.86144 5.73694,22.08384 5.58142,21.6864 4.9075,20.45952 4.31998,20.1312 3.83614,19.872 3.14494,19.23264 4.30268,19.21536 c 1.08864,-0.0173 1.86624,1.00224 2.12544,1.41696 1.24416,2.09088 3.23136,1.50336 4.02624,1.14048 0.12096,-0.89856 0.48384,-1.50336 0.88128,-1.84896 -3.07584,-0.3456 -6.28992,-1.53792 -6.28992,-6.8256 0,-1.50336 0.53568,-2.74752 1.41696,-3.7152 C 6.32444,9.03744 5.8406,7.62048 6.60092,5.71968 c 0,0 1.15776,-0.36288 3.8016,1.41696 1.10592,-0.31104 2.28096,-0.46656 3.456,-0.46656 1.17504,0 2.35008,0.15552 3.456,0.46656 2.64384,-1.79712 3.8016,-1.41696 3.8016,-1.41696 0.76032,1.9008 0.27648,3.31776 0.13824,3.66336 0.88128,0.96768 1.41696,2.19456 1.41696,3.7152 0,5.30496 -3.23136,6.48 -6.3072,6.8256 0.50112,0.432 0.93312,1.26144 0.93312,2.55744 0,1.84896 -0.0173,3.33504 -0.0173,3.8016 0,0.36288 0.2592,0.79488 0.9504,0.65664 5.46048,-1.83168 9.4176,-7.01568 9.4176,-13.11552 C 27.64794,6.18624 21.4617,0 13.82394,0 Z" id="path2" inkscape:connector-curvature="0" style="clip-rule:evenodd;fill:#ffffff;fill-rule:evenodd;stroke-width:1.72800004" />
 				</svg>
 			</a>
 		</footer>
