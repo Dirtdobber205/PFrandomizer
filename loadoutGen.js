@@ -1,5 +1,5 @@
 function randomMeleeGen() {
-	let melee = [
+	var melee = [
 		"Cleaver",
 		"Ice Pick",
 		"Jade Key",
@@ -29,7 +29,7 @@ function randomMeleeGen() {
 		"Crowbar",
 	];
 
-	let meleeAct = melee[Math.floor(Math.random() * melee.length)];
+	var meleeAct = melee[Math.floor(Math.random() * melee.length)];
 
 	if (meleeAct === "Cleaver") {
 		if (document.getElementById("cleaver").checked == true) {
@@ -162,12 +162,12 @@ function randomMeleeGen() {
 	}
 	document.getElementById("num3").textContent = meleeFinal;
 
-	console.log(meleeFinal);
+	console.log("Melee: " + meleeFinal);
 	return meleeFinal;
 }
 
 function randomPrimaryGen() {
-	const primary = [
+	var primary = [
 		"000AK12",
 		"000MP5K",
 		"000Colt LMG",
@@ -208,7 +208,7 @@ function randomPrimaryGen() {
 		"042Groza-1",
 		"043L86 LSW",
 		"044AK12BR",
-		"045FAMAS",
+		"045FAMAS G2",
 		"046VSS Vintorez",
 		"047AK47",
 		"049Colt SMG 635",
@@ -238,7 +238,7 @@ function randomPrimaryGen() {
 		"079Groza-4",
 		"080AUG A3 Para",
 		"081Stevens DB",
-		"082L115A3",
+		"082AWM",
 		"084TRG-42",
 		"085SCAR SSR",
 		"086MC51SD",
@@ -255,9 +255,10 @@ function randomPrimaryGen() {
 		"103AK103",
 		"105Dragunov SVDS",
 		"105AK105",
-		"107MP-40",
+		"107MP40",
 		"107FAL 50.00",
-		"112AA12",
+		"112AA-12",
+		"113Jury",
 		"120SPAS-12",
 		"121Tommy Gun",
 		"123M231",
@@ -265,11 +266,10 @@ function randomPrimaryGen() {
 		"150Hecate II",
 		"170M107",
 		"195Steyr Scout",
-		//"XXXJury",
 	];
 
 	// ATTACHMENTS
-	let primarySight = [
+	var primarySight = [
 		"Default",
 		"Z-Point",
 		"EOTech XPS2",
@@ -297,7 +297,7 @@ function randomPrimaryGen() {
 		//"Animu Sight", // Please mother fucking kill me.
 	];
 
-	let primaryBarrel = [
+	var primaryBarrel = [
 		"Supressor",
 		"R2 Suppressor",
 		"ARS Supressor",
@@ -308,7 +308,7 @@ function randomPrimaryGen() {
 		"Default",
 	];
 
-	let primaryUnder = [
+	var primaryUnder = [
 		"Vertical Grip",
 		"Angled Grip",
 		"Folding Grip",
@@ -318,12 +318,12 @@ function randomPrimaryGen() {
 		"Default",
 	];
 
-	let primaryExtra = [
+	var primaryExtra = [
 		"Green Laser",
 		"Laser",
 		"Ballistics Tracker",
 		"Canted Iron Sights",
-		"Canted Delta Sights",
+		"Canted Delta Sight",
 		"Flashlight",
 		//"Hollow Point",
 		//"Armor Piercing",
@@ -332,119 +332,136 @@ function randomPrimaryGen() {
 
 
 	const userRank = document.getElementById("userRankInput").value;
-	let weaponIsAvailable = false;
+	var weaponIsAvailable = false;
 
 	while (weaponIsAvailable == false) {
 		let primaryAct = primary[Math.floor(Math.random() * primary.length)];
 		let primaryNoRank = primaryAct.slice(3, 999);
 		let primaryRank = primaryAct.slice(0, 3);
-		const finalPrimaryRank = parseInt(primaryRank, 10);
+		var finalPrimaryRank = parseInt(primaryRank, 10);
 
 		if (userRank >= finalPrimaryRank) {
 			weaponIsAvailable = true;
 
-			if (primaryAct === "105Dragunov SVDS") {
-				const svds = primarySight.concat("PSO-1M2 Scope");
-				primarySightAct = svds[Math.floor(Math.random() * svds.length)];
-			} else if (primaryAct === "016SCAR-L" || primaryAct === "030SCAR-H" || primaryAct === "032SCAR PDW" || primaryAct === "041AWS" || primaryAct === "072SCAR HAMR" || primaryAct === "082L115A3" || primaryAct === "084TRG-42") {
-				const pmii = primarySight.concat("PM-II");
-				primarySightAct = pmii[Math.floor(Math.random() * pmii.length)];
-			} else if (primaryAct === "120SPAS-12") {
-				const spas = primarySight.concat("Extended Stock");
-				primarySightAct = spas[Math.floor(Math.random() * spas.length)];
-			} else if (primaryAct === "013SKS" || primaryAct === "015AS VAL" || primaryAct === "038Dragunov SVU" || primaryAct === "046VSS Vintorez" || primaryAct === "069SR-3M" || primaryAct === "091Mosin Nagant") {
-				const pso = primarySight.concat("PSO-1 Scope");
-				if (primaryAct === "091Mosin Nagant") {
-					const mosin = pso.concat("PU-1 Scope");
-					primarySightAct = mosin[Math.floor(Math.random() * mosin.length)];
-				} else {
-					primarySightAct = pso[Math.floor(Math.random() * pso.length)];
-				}
-			} else if (primaryAct === "0931858 Carbine") {
-				const halfFull = primarySight.concat("Half Ring Sight", "Full Ring Sight");
-				primarySightAct = halfFull[Math.floor(Math.random() * halfFull.length)];
-			} else if (primaryAct === "195Steyr Scout") {
-				const steyr = primarySight.concat("Leupold M8 6x");
-				primarySightAct = steyr[Math.floor(Math.random() * steyr.length)];
-			} else if (primaryAct === "121Tommy Gun") {
-				const lyman = primarySight.concat("Lyman Sight");
-				primarySightAct = lyman[Math.floor(Math.random * lyman.length)];
-			} else {
-				primarySightAct = primarySight[Math.floor(Math.random() * primarySight.length)];
+			var primarySightAct;
+
+			switch (primaryNoRank) {
+				case "Dragunov SVDS": primarySight = primarySight.concat("PSO-1M2 Scope");
+					break;
+				case "SCAR-L":
+				case "SCAR-H":
+				case "SCAR PDW":
+				case "AWS":
+				case "SCAR-HAMR":
+				case "AWM":
+				case "TRG-42":
+					primarySight = primarySight.concat("PM-II");
+					break;
+				case "SPAS-12": primarySight = primarySight.concat("Extended Stock");
+					break;
+				case "SKS":
+				case "AS VAL":
+				case "Dragunov SVU":
+				case "VSS Vintorez":
+				case "SR-3M":
+					primarySight = primarySight.concat("PSO-1 Scope");
+					break;
+				case "Mosin Nagant": primarySight = primarySight.concat("PSO-1 Scope", "PU-1 Scope");
+					break;
+				case "1858 Carbine": primarySight = primarySight.concat("Half Ring Sight", "Full Ring Sight");
+					break;
+				case "Steyr Scout": primarySight = primarySight.concat("Leupold M8 6x");
+					break;
+				case "Tommy Gun": primarySight = primarySight.concat("Lyman Sight");
+					break;
+				case "G36":
+				case "MG36":
+				case "G36C":
+					primarySight = primarySight.concat("Hensoldt 3x Sight");
+					break;
+			}
+			
+			primarySightAct = primarySight[Math.floor(Math.random() * primarySight.length)];
+
+			switch (primaryNoRank) {
+				case "MP5K":
+				case "UMP45":
+				case "MP7":
+				case "P90":
+				case "MP5":
+				case "Colt SMG 635":
+				case "L2A3":
+				case "MP10":
+				case "M3A1":
+				case "MP5/10":
+				case "AUG A3 Para":
+				case "Kriss Vector":
+				case "MP-40":
+				case "Tommy Gun":
+					primaryBarrel = primaryBarrel.concat("Osprey Suppressor");
+					break;
+				case "MAC10":
+					primaryBarrel = primaryBarrel.concat("Osprey Suppressor", "Sionics Suppressor");
+					break;
+				case "PPSH-41":
+				case "1858 Carbine":
+				case "Stevens DB":
+				case "Jury":
+					primaryBarrel = [ "Compensator", "Muzzle Brake", "Flash Hider", "Default" ];
+					break;
+				default:
 			}
 
-			if (primaryAct === "015AS VAL" || primaryAct === "041AWS" || primaryAct === "046VSS Vintorez" || primaryAct === "060MP5SD" || primaryAct === "062Honey Badger" || primaryAct === "079Groza-4" || primaryAct === "086MC51SD" || primaryAct === "125KAC SRR") {
+			if (primaryNoRank === "AS VAL" || primaryNoRank === "AWS" || primaryNoRank === "VSS Vintorez" || primaryNoRank === "MP5SD" || primaryNoRank === "Honey Badger" || primaryNoRank === "Groza-4" || primaryNoRank === "MC51SD" || primaryNoRank === "KAC SRR") {
 				primaryBarrelAct = "N/A";
-			} else if (primaryAct === "000MP5K" || primaryAct === "006UMP45" || primaryAct === "009MP7" || primaryAct === "023MAC10" || primaryAct === "024P90" || primaryAct === "040MP5" || primaryAct === "049Colt SMG 635" || primaryAct === "053L2A3" || primaryAct === "066MP10" || primaryAct === "071M3A1" || primaryAct === "074MP5/10" || primaryAct === "080AUG A3 Para" || primaryAct === "100Kriss Vector" || primaryAct === "107MP-40" || primaryAct === "121Tommy Gun") {
-				const osprey = primaryBarrel.concat("Osprey Suppressor");
-				if (primaryAct === "023MAC10") {
-					const sionics = osprey.concat("Sionics Suppressor");
-					primaryBarrelAct = sionics[Math.floor(Math.random() * sionics.length)];
-				} else {
-					primaryBarrelAct = osprey[Math.floor(Math.random() * osprey.length)];
-				}
-			} else if (primaryAct === "092PPSH-41" || primaryAct === "0931858 Carbine" || primaryAct === "081Stevens DB") {
-				const primaryNoSuppressor = [
-					"Compensator",
-					"Muzzle Brake",
-					"Flash Hider",
-					"Default"
-				];
-				primaryBarrelAct = primaryNoSuppressor[Math.floor(Math.random() * primaryNoSuppressor.length)];
 			} else {
 				primaryBarrelAct = primaryBarrel[Math.floor(Math.random() * primaryBarrel.length)];
 			}
-
-			if (primaryAct === "028L22" || primaryAct === "042Groza-1" || primaryAct === "024P90") {
-				if (primaryAct === "028L22" || primaryAct === "024P90") {
-					let greenUnder = primaryUnder.concat("Green Laser");
-					primaryUnderAct = greenUnder[Math.floor(Math.random() * greenUnder.length)];
-				} else if (primaryAct === "042Groza-1") {
-					let greenUnder = [
-						"Laser",
-						"Green Laser",
-						"Flashlight",
-						"Default"
-					];
-					primaryUnderAct = greenUnder[Math.floor(Math.random() * greenUnder.length)];
-				}
-			} else {
-				primaryUnderAct = primaryUnder[Math.floor(Math.random() * primaryUnder.length)];
+			
+			switch (primaryNoRank) {
+				case "L22":
+				case "P90":
+					primaryUnder = primaryUnder.concat("Green Laser");
+					break;
+				case "Groza-1":
+					primaryUnder = ["Laser", "Green Laser", "Flashlight", "Default"];
+					break;
+				default:
 			}
+			primaryUnderAct = primaryUnder[Math.floor(Math.random() * primaryUnder.length)];
 
-			if (primaryAct === "001KSG-12" || primaryAct === "011Remington 870" || primaryAct === "024DBV12" || primaryAct === "056KS-23M" || primaryAct === "063Saiga-12" || primaryAct === "081Stevens DB" || primaryAct === "112AA12" || primaryAct === "120SPAS-12") {
-				const shotgunExtra = primaryExtra.concat("Flechette", "Birdshot", "Slugs");
-				if (primaryAct === "112AA12") {
-					const aa12 = shotgunExtra.concat("20rd Drum");
-					primaryExtraAct = aa12[Math.floor(Math.random() * aa12.length)];
-				} else {
-					primaryExtraAct = shotgunExtra[Math.floor(Math.random() * shotgunExtra.length)];
-				}
-			} else if (primaryAct === "015AS VAL" || primaryAct === "069SR-3M") {
-				const extMag = primaryExtra.concat("Extended Magazine");
-				primaryExtraAct = extMag[Math.floor(Math.random() * extMag.length)];
-			} else if (primaryAct === "121Tommy Gun") {
-				const tommy = primaryExtra.concat("30rd Mag", "50rd Drum");
-				primaryExtraAct = tommy[Math.floor(Math.random() * tommy.length)];
-			} else {
-				primaryExtraAct = primaryExtra[Math.floor(Math.random() * primaryExtra.length)];
+			switch (primaryNoRank) {
+				case "KSG-12":
+				case "Remington 870":
+				case "DBV12":
+				case "KS-23M":
+				case "Saiga-12":
+				case "Stevens DB":
+				case "AA-12":
+				case "SPAS-12":
+					primaryExtra = primaryExtra.concat("Flechette", "Birdshot", "Slugs");
+					switch (primaryNoRank) {
+						case "AA-12": primaryExtra = primaryExtra.concat("20rd Drum");
+					}
+					break;
+				case "AS VAL":
+				case "SR-3M":
+					primaryExtra = primaryExtra.concat("Extended Magazine", "Armor Piercing", "Hollow Point");
+					break;
+				case "Tommy Gun": primaryExtra = primaryExtra.concat("30rd Mag", "50rd Drum", "Armor Piercing", "Hollow Point");
+					break;
 			}
+			primaryExtraAct = primaryExtra[Math.floor(Math.random() * primaryExtra.length)];
 
-			const primaryFinal = primaryNoRank;
-			const primaryFinalAttachments = "[ " + primarySightAct + ", " + primaryBarrelAct + ", " + primaryUnderAct + ", " + primaryExtraAct + " ]";
+
+			var primaryFinal = primaryNoRank;
+			var primaryFinalAttachments = "[ " + primarySightAct + ", " + primaryBarrelAct + ", " + primaryUnderAct + ", " + primaryExtraAct + " ]";
 
 			document.getElementById("num1").textContent = primaryNoRank;
 			document.getElementById("num1a").textContent = primaryFinalAttachments;
-			if (primaryNoRank === "BFG 50" && primaryExtraAct === "Ballistics Tracker") {
-				document.getElementById("num4").textContent = "I feel so bad that you have to use this...";
-			} else if (primaryNoRank === "MP10" && primaryExtraAct === "Flashlight" && primaryUnderAct === "Flashlight") {
-				document.getElementById("num4").textContent = "MP10 already has one, so why not two more!";
-			} else if (primaryNoRank === "AK47" || primaryNoRank === "Mosin Nagant") {
-				document.getElementById("num4").textContent = "сука блять Win this for the motherland!";
-			} else {
-				document.getElementById("num4").textContent = "Good luck!";
-			}
+
 			console.log("Primary: " + primaryFinal);
+
 			if (primaryFinal == undefined || primarySightAct == undefined || primaryBarrelAct == undefined || primaryExtraAct == undefined) {
 				document.getElementById("num4").textContent = "Something went wrong.\nCheck console, noob.";
 				throw new TypeError("Check Math.random assignments.");
@@ -460,7 +477,7 @@ function randomPrimaryGen() {
 }
 
 function randomSecondaryGen() {
-	const secondary = [
+	var secondary = [
 		"000M9",
 		"000Glock 17",
 		"004MP412 REX",
@@ -480,12 +497,12 @@ function randomSecondaryGen() {
 		"090Sawed Off",
 		"095Saiga-12U",
 		"106MP1911",
+		"113Judge",
 		"117Obrez",
-		//"XXXJudge",
-		//"XXXExecutioner",
+		"137Executioner",
 	];
 
-	let secondarySight = [
+	var secondarySight = [
 		"Default",
 		"Z-Point",
 		"EOTech XPS2",
@@ -514,7 +531,7 @@ function randomSecondaryGen() {
 		"Full Ring Sight",
 	];
 
-	let secondaryBarrel = [
+	var secondaryBarrel = [
 		"Supressor",
 		"R2 Suppressor",
 		"ARS Supressor",
@@ -525,73 +542,79 @@ function randomSecondaryGen() {
 		"Default",
 	];
 
-	let secondaryExtra = [
+	var secondaryExtra = [
 		"Laser",
 		"Green Laser",
 		"Flashlight",
-		// "Hollow Point",
-		// "Armor Piercing",
 		"Ballistics Tracker",
 		"Default",
 	];
 
 	const userRank = document.getElementById("userRankInput").value;
-	let weaponIsAvailable = false;
+	var weaponIsAvailable = false;
 
 	while (weaponIsAvailable == false) {
 		let secondaryAct = secondary[Math.floor(Math.random() * secondary.length)];
 
-		const secondaryNoRank = secondaryAct.slice(3, 999);
+		var secondaryNoRank = secondaryAct.slice(3, 999);
+
 		let secondaryRank = secondaryAct.slice(0, 3);
 		let finalSecondaryRank = parseInt(secondaryRank, 10);
 
 		if (userRank >= finalSecondaryRank) {
 			weaponIsAvailable = true;
 
-			if (secondaryNoRank === "Obrez") {
-				let obrez = otherSecSight.concat("PU-1 Scope");
-				secondarySightAct = obrez[Math.floor(Math.random() * obrez.length)];
-			} else {
-				secondarySightAct = secondarySight[Math.floor(Math.random() * secondarySight.length)];
-			}
+			if (secondaryNoRank === "Obrez")
+				secondarySight = secondarySight.concat("PU-1 Scope", "PSO-1 Scope");
+
 			secondarySightAct = secondarySight[Math.floor(Math.random() * secondarySight.length)];
 
-			if (secondaryNoRank === "MP412 REX" || secondaryNoRank === "Deagle 44" || secondaryNoRank === "Mateba 6" || secondaryNoRank === "1858 New Army" || secondaryNoRank === "Redhawk 44" || secondaryNoRank === "Sawed Off") {
-				let secNoSuppress = [
-					"Flash Hider",
-					"Compensator",
-					"Muzzle Brake",
-					"Default"
-				];
-				secondaryBarrelAct = secNoSuppress[Math.floor(Math.random() * secNoSuppress.length)];
-			} else {
-				secondaryBarrelAct = secondaryBarrel[Math.floor(Math.random() * secondaryBarrel.length)];
+			if (secondaryNoRank === "MP412 REX" ||
+			secondaryNoRank === "Deagle 44" ||
+			secondaryNoRank === "Mateba 6" ||
+			secondaryNoRank === "1858 New Army" ||
+			secondaryNoRank === "Redhawk 44" ||
+			secondaryNoRank === "Sawed Off" ||
+			secondaryNoRank === "Judge" ||
+			secondaryNoRank === "Executioner") {
+				secondaryBarrel = ["Flash Hider", "Compensator", "Muzzle Brake", "Default"];
 			}
+			secondaryBarrelAct = secondaryBarrel[Math.floor(Math.random() * secondaryBarrel.length)];
 
-			if (secondaryNoRank === "Glock 17" || secondaryNoRank === "Glock 18") {
-				const glock = secondaryExtra.concat("Glock Stock", "33rd Magazine");
-				secondaryExtraAct = glock[Math.floor(Math.random() * glock.length)];
-			} else if (secondaryNoRank === "Serbu Shotgun" || secondaryNoRank === "Sawed Off" || secondaryNoRank === "Saiga-12U") {
-				let secShotExtra = secondaryExtra.concat("Flechette", "Birdshot", "Slugs");
-				if (secondaryNoRank === "Sawed Off") {
-					const boomStock = secShotExtra.concat("Boom Stock");
-					secondaryExtraAct = boomStock[Math.floor(Math.random() * boomStock.length)];
-				} else {
-					secondaryExtraAct = secShotExtra[Math.floor(Math.random() * secShotExtra.length)];
-				}
-			} else if (secondaryNoRank === "Zip 22") {
-				const zip = secondaryExtra.concat("Pro Mag");
-				secondaryExtraAct = zip[Math.floor(Math.random() * zip.length)];
-			} else {
-				secondaryExtraAct = secondaryExtra[Math.floor(Math.random() * secondaryExtra.length)];
+			switch (secondaryNoRank) {
+				case "Serbu Shotgun":
+				case "Saiga-12U":
+				case "Sawed Off":
+				case "SFG-50":
+				case "Obrez":
+					secondaryExtra = secondaryExtra.concat("Canted Iron Sights", "Canted Delta Sight");
+					switch (secondaryNoRank) {
+						case "Serbu Shotgun":
+						case "Saiga-12U":
+						case "Sawed Off":
+							secondaryExtra = secondaryExtra.concat("Flechette", "Birdshot", "Slugs");
+							switch (secondaryNoRank) {
+								case "Sawed Off": secondaryExtra = secondaryExtra.concat("Boom Stock");
+							}
+					}
+					break;
+				default:
+					secondaryExtra = secondaryExtra.concat("Hollow Point", "Armor Piercing");
+					switch (secondaryNoRank) {
+						case "Zip 22": secondaryExtra = secondaryExtra.concat("Pro Mag", "Hollow Point", "Armor Piercing");
+							break;
+						case "M93R": secondaryExtra = secondaryExtra.concat("Raffica Stock", "Hollow Point", "Armor Piercing");
+							break;
+					}
 			}
+			secondaryExtraAct = secondaryExtra[Math.floor(Math.random() * secondaryExtra.length)];
 
 			let secondaryFinal = secondaryNoRank;
 			const secondaryFinalAttachments = "[ " + secondarySightAct + ", " + secondaryBarrelAct + ", " + secondaryExtraAct + " ]";
 
 			document.getElementById("num2").textContent = secondaryFinal;
 			document.getElementById("num2a").textContent = secondaryFinalAttachments;
-			console.log(secondaryFinal);
+			console.log("Secondary: " + secondaryFinal);
 			if (secondaryFinal == undefined || secondarySightAct == undefined || secondaryBarrelAct == undefined || secondaryExtraAct == undefined) {
 				document.getElementById("num4").textContent = "Something went wrong.\nCheck console, noob.";
 				throw new TypeError("Check Math.random assignments.");
@@ -605,6 +628,7 @@ function randomSecondaryGen() {
 		}
 	}
 }
+
 function randomLoadout() {
 	randomPrimaryGen();
 	randomSecondaryGen();
