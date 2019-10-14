@@ -266,6 +266,10 @@ function randomPrimaryGen() {
 		"150Hecate II",
 		"170M107",
 		"195Steyr Scout",
+		// "xxxWA2000",
+		// "xxxUzi",
+		// "xxxSL-8"
+		// "xxxG36K",
 	];
 
 	// ATTACHMENTS
@@ -294,7 +298,7 @@ function randomPrimaryGen() {
 		"TA11 ACOG",
 		"Barska Electro",
 		"Pilad-3",
-		//"Animu Sight", // Please mother fucking kill me.
+		//"Animu Sight",
 	];
 
 	var primaryBarrel = [
@@ -325,9 +329,7 @@ function randomPrimaryGen() {
 		"Canted Iron Sights",
 		"Canted Delta Sight",
 		"Flashlight",
-		//"Hollow Point",
-		//"Armor Piercing",
-		"Default"
+		"Default",
 	];
 
 
@@ -346,7 +348,8 @@ function randomPrimaryGen() {
 			var primarySightAct;
 
 			switch (primaryNoRank) {
-				case "Dragunov SVDS": primarySight = primarySight.concat("PSO-1M2 Scope");
+				case "Dragunov SVDS":
+					primarySight = primarySight.concat("PSO-1M2 Scope");
 					break;
 				case "SCAR-L":
 				case "SCAR-H":
@@ -357,7 +360,8 @@ function randomPrimaryGen() {
 				case "TRG-42":
 					primarySight = primarySight.concat("PM-II");
 					break;
-				case "SPAS-12": primarySight = primarySight.concat("Extended Stock");
+				case "SPAS-12":
+					primarySight = primarySight.concat("Extended Stock");
 					break;
 				case "SKS":
 				case "AS VAL":
@@ -366,13 +370,17 @@ function randomPrimaryGen() {
 				case "SR-3M":
 					primarySight = primarySight.concat("PSO-1 Scope");
 					break;
-				case "Mosin Nagant": primarySight = primarySight.concat("PSO-1 Scope", "PU-1 Scope");
+				case "Mosin Nagant":
+					primarySight = primarySight.concat("PSO-1 Scope", "PU-1 Scope");
 					break;
-				case "1858 Carbine": primarySight = primarySight.concat("Half Ring Sight", "Full Ring Sight");
+				case "1858 Carbine":
+					primarySight = primarySight.concat("Half Ring Sight", "Full Ring Sight");
 					break;
-				case "Steyr Scout": primarySight = primarySight.concat("Leupold M8 6x");
+				case "Steyr Scout":
+					primarySight = primarySight.concat("Leupold M8 6x");
 					break;
-				case "Tommy Gun": primarySight = primarySight.concat("Lyman Sight");
+				case "Tommy Gun":
+					primarySight = primarySight.concat("Lyman Sight");
 					break;
 				case "G36":
 				case "MG36":
@@ -407,7 +415,12 @@ function randomPrimaryGen() {
 				case "1858 Carbine":
 				case "Stevens DB":
 				case "Jury":
-					primaryBarrel = [ "Compensator", "Muzzle Brake", "Flash Hider", "Default" ];
+					primaryBarrel = [
+						"Compensator",
+						"Muzzle Brake",
+						"Flash Hider",
+						"Default"
+					];
 					break;
 				default:
 			}
@@ -424,13 +437,46 @@ function randomPrimaryGen() {
 					primaryUnder = primaryUnder.concat("Green Laser");
 					break;
 				case "Groza-1":
-					primaryUnder = ["Laser", "Green Laser", "Flashlight", "Default"];
+					primaryUnder = [
+						"Laser",
+						"Green Laser",
+						"Flashlight",
+						"Default"
+					];
 					break;
 				default:
 			}
+			
 			primaryUnderAct = primaryUnder[Math.floor(Math.random() * primaryUnder.length)];
 
 			switch (primaryNoRank) {
+				//Really inefficient way of doing this but
+				//I need to separate those that can take AP 
+				//and HP from those that cannot.
+				case "KSG-12":
+				case "Remington 870":
+				case "DBV12":
+				case "KS-23M":
+				case "Saiga-12":
+				case "Stevens DB":
+				case "AA-12":
+				case "SPAS-12":
+				case "Intervention":
+				case "Remington 700":
+				case "AWS":
+				case "Dragunov SVU":
+				case "Dragunov SVDS":
+				case "BFG 50":
+				case "AWM":
+				case "Mosin Nagant":
+				case "TRG-42":
+				case "M107":
+				case "Hecate II":
+					switch (primaryNoRank) {
+						case "AA-12":
+							break;
+					}
+					break;
 				case "KSG-12":
 				case "Remington 870":
 				case "DBV12":
@@ -441,15 +487,20 @@ function randomPrimaryGen() {
 				case "SPAS-12":
 					primaryExtra = primaryExtra.concat("Flechette", "Birdshot", "Slugs");
 					switch (primaryNoRank) {
-						case "AA-12": primaryExtra = primaryExtra.concat("20rd Drum");
+						case "AA-12":
+							primaryExtra = primaryExtra.concat("20rd Drum");
+							break;
 					}
 					break;
 				case "AS VAL":
 				case "SR-3M":
 					primaryExtra = primaryExtra.concat("Extended Magazine", "Armor Piercing", "Hollow Point");
 					break;
-				case "Tommy Gun": primaryExtra = primaryExtra.concat("30rd Mag", "50rd Drum", "Armor Piercing", "Hollow Point");
+				case "Tommy Gun":
+					primaryExtra = primaryExtra.concat("30rd Mag", "50rd Drum", "Armor Piercing", "Hollow Point");
 					break;
+				default:
+					primaryExtra = primaryExtra.concat("Hollow Point", "Armor Piercing");
 			}
 			primaryExtraAct = primaryExtra[Math.floor(Math.random() * primaryExtra.length)];
 
@@ -546,8 +597,8 @@ function randomSecondaryGen() {
 		"Laser",
 		"Green Laser",
 		"Flashlight",
-		"Ballistics Tracker",
 		"Default",
+		"Ballistics Tracker",
 	];
 
 	const userRank = document.getElementById("userRankInput").value;
@@ -564,21 +615,51 @@ function randomSecondaryGen() {
 		if (userRank >= finalSecondaryRank) {
 			weaponIsAvailable = true;
 
-			if (secondaryNoRank === "Obrez")
-				secondarySight = secondarySight.concat("PU-1 Scope", "PSO-1 Scope");
+			switch (secondaryNoRank) {
+				// Remove the Half and Full ring sights.
+				case "Serbu Shotgun":
+				case "SFG 50":
+				case "Sawed Off":
+				case "Saiga-12U":
+					secondarySight.length = 24;
+					break;
+				case "Obrez":
+					secondarySight.length = 24;
+					secondarySight = secondarySight.concat("PU-1 Scope", "PSO-1 Scope");
+					break;
+			}
 
 			secondarySightAct = secondarySight[Math.floor(Math.random() * secondarySight.length)];
 
-			if (secondaryNoRank === "MP412 REX" ||
-			secondaryNoRank === "Deagle 44" ||
-			secondaryNoRank === "Mateba 6" ||
-			secondaryNoRank === "1858 New Army" ||
-			secondaryNoRank === "Redhawk 44" ||
-			secondaryNoRank === "Sawed Off" ||
-			secondaryNoRank === "Judge" ||
-			secondaryNoRank === "Executioner") {
-				secondaryBarrel = ["Flash Hider", "Compensator", "Muzzle Brake", "Default"];
+			switch (secondaryNoRank) {
+				case "MP412 REX":
+				case "Deagle 44":
+				case "Mateba 6":
+				case "1858 New Army":
+				case "Redhawk 44":
+				case "Sawed Off":
+				case "Judge":
+				case "Executioner":
+					secondaryBarrel = [
+						"Flash Hider",
+						"Compensator",
+						"Muzzle Brake",
+						"Default"
+					];
+					break;
+				case "M9":
+				case "M93R":
+				case "Zip 22":
+				case "Glock 17":
+				case "Glock 18":
+				case "M1911":
+				case "M45A1":
+				case "MP1911":
+				case "Five Seven":
+					secondaryBarrel = secondaryBarrel.concat("Osprey Suppressor");
+					break;
 			}
+
 			secondaryBarrelAct = secondaryBarrel[Math.floor(Math.random() * secondaryBarrel.length)];
 
 			switch (secondaryNoRank) {
@@ -594,23 +675,49 @@ function randomSecondaryGen() {
 						case "Sawed Off":
 							secondaryExtra = secondaryExtra.concat("Flechette", "Birdshot", "Slugs");
 							switch (secondaryNoRank) {
-								case "Sawed Off": secondaryExtra = secondaryExtra.concat("Boom Stock");
+								case "Sawed Off":
+									secondaryExtra = secondaryExtra.concat("Boom Stock");
+									break;
 							}
+							break;
 					}
 					break;
+				case "Judge":
+					break;
 				default:
+					switch (secondaryNoRank) {
+						// Why can't you make my job easier and add the bt to the pistols, Lito...
+						case "M9":
+						case "M93R":
+						case "Glock 17":
+						case "M1911":
+						case "Deagle 44":
+						case "M45A1":
+						case "Five Seven":
+						case "Glock 18":
+						case "TEC-9":
+						case "MP1911":
+							secondaryExtra.length = 4;
+					}
 					secondaryExtra = secondaryExtra.concat("Hollow Point", "Armor Piercing");
 					switch (secondaryNoRank) {
-						case "Zip 22": secondaryExtra = secondaryExtra.concat("Pro Mag", "Hollow Point", "Armor Piercing");
+						case "Zip 22":
+							secondaryExtra = secondaryExtra.concat("Pro Mag");
 							break;
-						case "M93R": secondaryExtra = secondaryExtra.concat("Raffica Stock", "Hollow Point", "Armor Piercing");
+						case "M93R":
+							secondaryExtra = secondaryExtra.concat("Raffica Stock");
+							break;
+						case "Glock 17":
+						case "Glock 18":
+							secondaryExtra = secondaryExtra.concat("Glock Stock", "33rd Magazine");
 							break;
 					}
 			}
+
 			secondaryExtraAct = secondaryExtra[Math.floor(Math.random() * secondaryExtra.length)];
 
 			let secondaryFinal = secondaryNoRank;
-			const secondaryFinalAttachments = "[ " + secondarySightAct + ", " + secondaryBarrelAct + ", " + secondaryExtraAct + " ]";
+			var secondaryFinalAttachments = "[ " + secondarySightAct + ", " + secondaryBarrelAct + ", " + secondaryExtraAct + " ]";
 
 			document.getElementById("num2").textContent = secondaryFinal;
 			document.getElementById("num2a").textContent = secondaryFinalAttachments;
