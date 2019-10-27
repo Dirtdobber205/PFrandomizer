@@ -21,6 +21,10 @@ function randomMeleeGen() {
 		"Baseball Bat",
 		"Sledge Hammer",
 		"Crane",
+		"Reaper",
+		"Hunting Knife",
+		"Jason",
+		"Cricket Bat",
 	];
 
 	// This var's only purpose is to include the Crowbar as a default weapon. I suck at JS ok?
@@ -32,131 +36,129 @@ function randomMeleeGen() {
 	var meleeAct = melee[Math.floor(Math.random() * melee.length)];
 
 	if (meleeAct === "Cleaver") {
-		if (document.getElementById("cleaver").checked == true) {
+		if (document.getElementById("cleaver").checked == true)
 			meleeFinal = meleeAct;
-		} else {
+		else
 			meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-		}
 	} else if (meleeAct === "Ice Pick") {
-		if (document.getElementById("ice").checked == true) {
+		if (document.getElementById("ice").checked == true)
 			meleeFinal = meleeAct;
-		} else {
+		else
 			meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-		}
 	} else if (meleeAct === "Jade Key") {
-		if (document.getElementById("jKey").checked == true) {
+		if (document.getElementById("jKey").checked == true)
 			meleeFinal = meleeAct;
-		} else {
+		else
 			meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-		}
 	} else if (meleeAct === "Karambit") {
-		if (document.getElementById("karambit").checked == true) {
+		if (document.getElementById("karambit").checked == true)
 			meleeFinal = meleeAct;
-		} else {
+		else
 			meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-		}
 	} else if (meleeAct === "Machete") {
-		if (document.getElementById("machete").checked == true) {
+		if (document.getElementById("machete").checked == true)
 			meleeFinal = meleeAct;
-		} else {
+		else
 			meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-		}
 	} else if (meleeAct === "Mek'Leth") {
-		if (document.getElementById("mekleth").checked == true) {
+		if (document.getElementById("mekleth").checked == true)
 			meleeFinal = meleeAct;
-		} else {
+		else
 			meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-		}
 	} else if (meleeAct === "Tomahawk") {
-		if (document.getElementById("tomahawk").checked == true) {
+		if (document.getElementById("tomahawk").checked == true)
 			meleeFinal = meleeAct;
-		} else {
+		else
 			meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-		}
 	} else if (meleeAct === "Tactical Spatula") {
-		if (document.getElementById("spatula").checked == true) {
+		if (document.getElementById("spatula").checked == true)
 			meleeFinal = meleeAct;
-		} else {
-			meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-		}
+		else meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
 	} else if (meleeAct === "Chosen One") {
-		if (document.getElementById("chosen").checked == true) {
+		if (document.getElementById("chosen").checked == true)
 			meleeFinal = meleeAct;
-		} else {
+		else
 			meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-		}
 	} else if (meleeAct === "Hattori") {
-		if (document.getElementById("hattori").checked == true) {
+		if (document.getElementById("hattori").checked == true)
 			meleeFinal = meleeAct;
-		} else {
+		else
 			meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-		}
 	} else if (meleeAct === "Nordic War Axe") {
-		if (document.getElementById("nordic").checked == true) {
+		if (document.getElementById("nordic").checked == true)
 			meleeFinal = meleeAct;
-		} else {
+		else
 			meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-		}
 	} else if (meleeAct === "Longsword") {
-		if (document.getElementById("long").checked == true) {
+		if (document.getElementById("long").checked == true)
 			meleeFinal = meleeAct;
-		} else {
+		else
 			meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-		}
 	} else if (meleeAct === "Brass Knuckle") {
-		if (document.getElementById("brass").checked == true) {
+		if (document.getElementById("brass").checked == true)
 			meleeFinal = meleeAct;
-		} else {
+		else
 			meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-		}
 	} else if (meleeAct === "Frying Pan") {
-		if (document.getElementById("pan").checked == true) {
+		if (document.getElementById("pan").checked == true)
 			meleeFinal = meleeAct;
-		} else {
+		else
 			meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-		}
 	} else if (meleeAct === "ASP Baton") {
-		if (document.getElementById("baton").checked == true) {
+		if (document.getElementById("baton").checked == true)
 			meleeFinal = meleeAct;
-		} else {
+		else
 			meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-		}
 	} else if (meleeAct === "Stick Grenade") {
-		if (document.getElementById("stick").checked == true) {
+		if (document.getElementById("stick").checked == true)
 			meleeFinal = meleeAct;
-		} else {
+		else
 			meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-		}
 	} else if (meleeAct === "Trench Mace") {
-		if (document.getElementById("trench").checked == true) {
+		if (document.getElementById("trench").checked == true)
 			meleeFinal = meleeAct;
-		} else {
+		else
 			meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-		}
 	} else if (meleeAct === "Nightstick") {
-		if (document.getElementById("night").checked == true) {
+		if (document.getElementById("night").checked == true)
 			meleeFinal = meleeAct;
-		} else {
+		else
 			meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-		}
 	} else if (meleeAct === "Baseball Bat") {
-		if (document.getElementById("baseball").checked == true) {
+		if (document.getElementById("baseball").checked == true)
 			meleeFinal = meleeAct;
-		} else {
+		else
 			meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-		}
 	} else if (meleeAct === "Sledge Hammer") {
-		if (document.getElementById("sledge").checked == true) {
+		if (document.getElementById("sledge").checked == true)
 			meleeFinal = meleeAct;
-		} else {
+		else
 			meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-		}
 	} else if (meleeAct === "Crane") {
-		if (document.getElementById("crane").checked == true) {
+		if (document.getElementById("crane").checked == true)
 			meleeFinal = meleeAct;
-		} else {
+		else
 			meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
-		}
+	} else if (meleeAct === "Jason") {
+		if (document.getElementById("jason").checked == true)
+			meleeFinal = meleeAct;
+		else
+			meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
+	} else if (meleeAct === "Reaper") {
+		if (document.getElementById("reaper").checked == true)
+			meleeFinal = meleeAct;
+		else
+			meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
+	} else if (meleeAct === "Cricket Bat") {
+		if (document.getElementById("cricket").checked == true)
+			meleeFinal = meleeAct;
+		else
+			meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
+	} else if (meleeAct === "Hunting Knife") {
+		if (document.getElementById("hunting").checked == true)
+			meleeFinal = meleeAct;
+		else
+			meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
 	} else {
 		meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
 	}
@@ -175,7 +177,8 @@ function randomPrimaryGen() {
 		"000M4A1",
 		"001KSG-12",
 		"003MK11",
-		"006UMP45",
+		"005UMP45",
+		"006G36K",
 		"007G36C",
 		"009MP7",
 		"010AN-94",
@@ -199,6 +202,7 @@ function randomPrimaryGen() {
 		"031M16A3",
 		"032SCAR PDW",
 		"033MG36",
+		"034SL-8",
 		"035AKU12",
 		"037RPK12",
 		"038Dragunov SVU",
@@ -268,8 +272,6 @@ function randomPrimaryGen() {
 		"195Steyr Scout",
 		// "xxxWA2000",
 		// "xxxUzi",
-		// "xxxSL-8"
-		// "xxxG36K",
 	];
 
 	// ATTACHMENTS
@@ -305,6 +307,7 @@ function randomPrimaryGen() {
 		"Supressor",
 		"R2 Suppressor",
 		"ARS Supressor",
+		"PBS-1 Suppressor",
 		"PBS-4 Suppressor",
 		"Flash Hider",
 		"Muzzle Brake",
@@ -385,6 +388,8 @@ function randomPrimaryGen() {
 				case "G36":
 				case "MG36":
 				case "G36C":
+				case "G36K":
+				case "SL-8":
 					primarySight = primarySight.concat("Hensoldt 3x Sight");
 					break;
 			}
@@ -586,6 +591,7 @@ function randomSecondaryGen() {
 		"Supressor",
 		"R2 Suppressor",
 		"ARS Supressor",
+		"PBS-1 Suppressor",
 		"PBS-4 Suppressor",
 		"Flash Hider",
 		"Muzzle Brake",
