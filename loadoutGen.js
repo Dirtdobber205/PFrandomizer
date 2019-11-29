@@ -1,5 +1,5 @@
 function randomMeleeGen() {
-	var melee = [
+	const melee = [
 		"Cleaver",
 		"Ice Pick",
 		"Jade Key",
@@ -27,10 +27,11 @@ function randomMeleeGen() {
 		"Cricket Bat",
 	];
 
-	// This var's only purpose is to include the Crowbar as a default weapon. I suck at JS ok?
-	let meleeDefault = [
+	// This var's only purpose is to include the Crowbar as a default weapon.
+	const meleeDefault = [
 		"Knife",
 		"Crowbar",
+		"You choose!", // Let's give the user some freedom if they get lucky...
 	];
 
 	var meleeAct = melee[Math.floor(Math.random() * melee.length)];
@@ -162,14 +163,16 @@ function randomMeleeGen() {
 	} else {
 		meleeFinal = meleeDefault[Math.floor(Math.random() * meleeDefault.length)];
 	}
+
 	document.getElementById("num3").textContent = meleeFinal;
 
 	console.log("Melee: " + meleeFinal);
+
 	return meleeFinal;
 }
 
 function randomPrimaryGen() {
-	var primary = [
+	const primary = [
 		"000AK12",
 		"000MP5K",
 		"000Colt LMG",
@@ -270,12 +273,15 @@ function randomPrimaryGen() {
 		"150Hecate II",
 		"170M107",
 		"195Steyr Scout",
-		// "xxxWA2000",
+		"200WA2000",
+		"211G11K2",
 		// "xxxUzi",
+		"000You choose!", // Give the user a break with this one.
 	];
 
 	// ATTACHMENTS
 	var primarySight = [
+		"You choose!",
 		"Default",
 		"Z-Point",
 		"EOTech XPS2",
@@ -300,15 +306,16 @@ function randomPrimaryGen() {
 		"TA11 ACOG",
 		"Barska Electro",
 		"Pilad-3",
-		//"Animu Sight",
+		//"Animu Sight", // Please mother fucking kill me.
 	];
 
 	var primaryBarrel = [
+		"You choose!",
 		"Supressor",
 		"R2 Suppressor",
 		"ARS Supressor",
-		"PBS-1 Suppressor",
 		"PBS-4 Suppressor",
+		"PBS-1 Suppressor",
 		"Flash Hider",
 		"Muzzle Brake",
 		"Compensator",
@@ -316,6 +323,7 @@ function randomPrimaryGen() {
 	];
 
 	var primaryUnder = [
+		"You choose!",
 		"Vertical Grip",
 		"Angled Grip",
 		"Folding Grip",
@@ -326,6 +334,7 @@ function randomPrimaryGen() {
 	];
 
 	var primaryExtra = [
+		"You choose!",
 		"Green Laser",
 		"Laser",
 		"Ballistics Tracker",
@@ -341,7 +350,7 @@ function randomPrimaryGen() {
 
 	while (weaponIsAvailable == false) {
 		let primaryAct = primary[Math.floor(Math.random() * primary.length)];
-		let primaryNoRank = primaryAct.slice(3, 999);
+		let primaryNoRank = primaryAct.slice(3);
 		let primaryRank = primaryAct.slice(0, 3);
 		var finalPrimaryRank = parseInt(primaryRank, 10);
 
@@ -350,10 +359,12 @@ function randomPrimaryGen() {
 
 			var primarySightAct;
 
+			// TODO: Think about condensing all the switch statements into just one?
 			switch (primaryNoRank) {
 				case "Dragunov SVDS":
 					primarySight = primarySight.concat("PSO-1M2 Scope");
 					break;
+
 				case "SCAR-L":
 				case "SCAR-H":
 				case "SCAR PDW":
@@ -363,9 +374,11 @@ function randomPrimaryGen() {
 				case "TRG-42":
 					primarySight = primarySight.concat("PM-II");
 					break;
+
 				case "SPAS-12":
 					primarySight = primarySight.concat("Extended Stock");
 					break;
+
 				case "SKS":
 				case "AS VAL":
 				case "Dragunov SVU":
@@ -373,18 +386,23 @@ function randomPrimaryGen() {
 				case "SR-3M":
 					primarySight = primarySight.concat("PSO-1 Scope");
 					break;
+
 				case "Mosin Nagant":
 					primarySight = primarySight.concat("PSO-1 Scope", "PU-1 Scope");
 					break;
+
 				case "1858 Carbine":
 					primarySight = primarySight.concat("Half Ring Sight", "Full Ring Sight");
 					break;
+
 				case "Steyr Scout":
 					primarySight = primarySight.concat("Leupold M8 6x");
 					break;
+
 				case "Tommy Gun":
 					primarySight = primarySight.concat("Lyman Sight");
 					break;
+
 				case "G36":
 				case "MG36":
 				case "G36C":
@@ -413,21 +431,17 @@ function randomPrimaryGen() {
 				case "Tommy Gun":
 					primaryBarrel = primaryBarrel.concat("Osprey Suppressor");
 					break;
+
 				case "MAC10":
 					primaryBarrel = primaryBarrel.concat("Osprey Suppressor", "Sionics Suppressor");
 					break;
+
 				case "PPSH-41":
 				case "1858 Carbine":
 				case "Stevens DB":
 				case "Jury":
-					primaryBarrel = [
-						"Compensator",
-						"Muzzle Brake",
-						"Flash Hider",
-						"Default"
-					];
+					primaryBarrel = [ "Compensator", "Muzzle Brake", "Flash Hider", "Default", "You choose!" ];
 					break;
-				default:
 			}
 
 			if (primaryNoRank === "AS VAL" || primaryNoRank === "AWS" || primaryNoRank === "VSS Vintorez" || primaryNoRank === "MP5SD" || primaryNoRank === "Honey Badger" || primaryNoRank === "Groza-4" || primaryNoRank === "MC51SD" || primaryNoRank === "KAC SRR") {
@@ -441,23 +455,20 @@ function randomPrimaryGen() {
 				case "P90":
 					primaryUnder = primaryUnder.concat("Green Laser");
 					break;
+
 				case "Groza-1":
-					primaryUnder = [
-						"Laser",
-						"Green Laser",
-						"Flashlight",
-						"Default"
-					];
+					primaryUnder = ["Laser", "Green Laser", "Flashlight", "Default", "You choose!",];
 					break;
-				default:
 			}
 			
 			primaryUnderAct = primaryUnder[Math.floor(Math.random() * primaryUnder.length)];
 
 			switch (primaryNoRank) {
-				//Really inefficient way of doing this but
-				//I need to separate those that can take AP 
-				//and HP from those that cannot.
+				/**
+				 * Really inefficient way of doing this but
+				 * I need to separate those that can take AP
+				 * and HP from those that cannot.
+				 */
 				case "KSG-12":
 				case "Remington 870":
 				case "DBV12":
@@ -477,11 +488,13 @@ function randomPrimaryGen() {
 				case "TRG-42":
 				case "M107":
 				case "Hecate II":
+				case "WA2000":
 					switch (primaryNoRank) {
 						case "AA-12":
 							break;
 					}
 					break;
+
 				case "KSG-12":
 				case "Remington 870":
 				case "DBV12":
@@ -497,34 +510,37 @@ function randomPrimaryGen() {
 							break;
 					}
 					break;
+
 				case "AS VAL":
 				case "SR-3M":
 					primaryExtra = primaryExtra.concat("Extended Magazine", "Armor Piercing", "Hollow Point");
 					break;
+
 				case "Tommy Gun":
 					primaryExtra = primaryExtra.concat("30rd Mag", "50rd Drum", "Armor Piercing", "Hollow Point");
 					break;
+
 				default:
 					primaryExtra = primaryExtra.concat("Hollow Point", "Armor Piercing");
 			}
+
 			primaryExtraAct = primaryExtra[Math.floor(Math.random() * primaryExtra.length)];
 
 
-			var primaryFinal = primaryNoRank;
 			var primaryFinalAttachments = "[ " + primarySightAct + ", " + primaryBarrelAct + ", " + primaryUnderAct + ", " + primaryExtraAct + " ]";
 
 			document.getElementById("num1").textContent = primaryNoRank;
 			document.getElementById("num1a").textContent = primaryFinalAttachments;
 
-			console.log("Primary: " + primaryFinal);
+			console.log("Primary: " + primaryNoRank);
 
-			if (primaryFinal == undefined || primarySightAct == undefined || primaryBarrelAct == undefined || primaryExtraAct == undefined) {
+			if (primaryNoRank == undefined || primarySightAct == undefined || primaryBarrelAct == undefined || primaryExtraAct == undefined) {
 				document.getElementById("num4").textContent = "Something went wrong.\nCheck console, noob.";
 				throw new TypeError("Check Math.random assignments.");
 			}
 		} else if (userRank < 0) {
 			document.getElementById("num1").textContent = "RANK ERROR";
-			document.getElementById("num1a").textContent = "RANK CANNOT BE A NEGATIVE NUMBER";
+			document.getElementById("num1a").textContent= "RANK CANNOT BE A NEGATIVE NUMBER";
 			throw new TypeError("Loadout could not be generated due to negative rank.");
 		} else {
 			continue;
@@ -539,7 +555,7 @@ function randomSecondaryGen() {
 		"004MP412 REX",
 		"008M1911",
 		"017Glock 18",
-		"018Deagle 44",
+		"018Desert Eagle L5",
 		"026M93R",
 		"029Mateba 6",
 		"034M45A1",
@@ -556,9 +572,12 @@ function randomSecondaryGen() {
 		"113Judge",
 		"117Obrez",
 		"137Executioner",
+		//"xxxMicro Uzi",
+		"000You choose!",
 	];
 
 	var secondarySight = [
+		"You choose!",
 		"Default",
 		"Z-Point",
 		"EOTech XPS2",
@@ -588,10 +607,10 @@ function randomSecondaryGen() {
 	];
 
 	var secondaryBarrel = [
+		"You choose!",
 		"Supressor",
 		"R2 Suppressor",
 		"ARS Supressor",
-		"PBS-1 Suppressor",
 		"PBS-4 Suppressor",
 		"Flash Hider",
 		"Muzzle Brake",
@@ -600,6 +619,7 @@ function randomSecondaryGen() {
 	];
 
 	var secondaryExtra = [
+		"You choose!",
 		"Laser",
 		"Green Laser",
 		"Flashlight",
@@ -627,11 +647,17 @@ function randomSecondaryGen() {
 				case "SFG 50":
 				case "Sawed Off":
 				case "Saiga-12U":
-					secondarySight.length = 24;
-					break;
 				case "Obrez":
-					secondarySight.length = 24;
-					secondarySight = secondarySight.concat("PU-1 Scope", "PSO-1 Scope");
+					secondarySight.length = 25;
+					switch (secondaryNoRank) {
+						case "Obrez":
+							secondarySight = secondarySight.concat("PU-1 Scope", "PSO-1 Scope");
+							break;
+					}
+					break;
+
+				case "Desert Eagle L5":
+					secondarySight = secondarySight.concat("Leupold M8-2x");
 					break;
 			}
 
@@ -639,20 +665,21 @@ function randomSecondaryGen() {
 
 			switch (secondaryNoRank) {
 				case "MP412 REX":
-				case "Deagle 44":
+				case "Desert Eagle L5":
 				case "Mateba 6":
 				case "1858 New Army":
 				case "Redhawk 44":
 				case "Sawed Off":
 				case "Judge":
 				case "Executioner":
-					secondaryBarrel = [
-						"Flash Hider",
-						"Compensator",
-						"Muzzle Brake",
-						"Default"
-					];
+					secondaryBarrel = [ "Flash Hider", "Compensator", "Muzzle Brake", "Default", "You choose!" ];
+					switch (secondaryNoRank) {
+						case "Desert Eagle L5":
+							secondaryBarrel = secondaryBarrel.concat("Extended Barrel");
+							break;
+					}
 					break;
+
 				case "M9":
 				case "M93R":
 				case "Zip 22":
@@ -688,11 +715,12 @@ function randomSecondaryGen() {
 							break;
 					}
 					break;
+
 				case "Judge":
 					break;
+
 				default:
 					switch (secondaryNoRank) {
-						// Why can't you make my job easier and add the bt to the pistols, Lito...
 						case "M9":
 						case "M93R":
 						case "Glock 17":
@@ -703,16 +731,19 @@ function randomSecondaryGen() {
 						case "Glock 18":
 						case "TEC-9":
 						case "MP1911":
-							secondaryExtra.length = 4;
+							secondaryExtra.length = 5;
+							break;
 					}
 					secondaryExtra = secondaryExtra.concat("Hollow Point", "Armor Piercing");
 					switch (secondaryNoRank) {
 						case "Zip 22":
 							secondaryExtra = secondaryExtra.concat("Pro Mag");
 							break;
+
 						case "M93R":
 							secondaryExtra = secondaryExtra.concat("Raffica Stock");
 							break;
+
 						case "Glock 17":
 						case "Glock 18":
 							secondaryExtra = secondaryExtra.concat("Glock Stock", "33rd Magazine");
@@ -742,8 +773,37 @@ function randomSecondaryGen() {
 	}
 }
 
+/*function randomGrenadeGen() {
+	// This function will be enabled when other grenades eventually get added.
+	// For now, this will be commented...
+	const grenade = [
+		"xxxFrag",
+		"xxxV40 Mini",
+		"xxxRGD-5",
+		"xxxM14 Smoke",
+	];
+
+	const userRank = document.getElementById("userRankInput").value;
+	var weaponIsAvailable = false;
+
+	while (weaponIsAvailable == false) {
+		let grenadeAct = grenade[Math.floor(Math.random() * grenade.length)];
+
+		var grenadeNoRank = grenadeAct.slice(3, 999);
+
+		let grenadeRank = grenadeAct.slice(0, 3);
+		let finalGrenadeRank = parseInt(grenadeRank, 10);
+
+		if (userRank >= finalGrenadeRank) {
+			weaponIsAvailable = true;
+
+			document.getElementById("num4").textContent = grenadeFinal;
+}
+*/
+
 function randomLoadout() {
 	randomPrimaryGen();
 	randomSecondaryGen();
 	randomMeleeGen();
+	//randomGrenadeGen();
 }
