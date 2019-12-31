@@ -27,7 +27,7 @@ function randomMeleeGen() {
 		"Cricket Bat",
 	];
 
-	// This var's only purpose is to include the Crowbar as a default weapon.
+	// This var's only purpose is to include the Crowbar as a default weapon. I suck at JS ok?
 	const meleeDefault = [
 		"Knife",
 		"Crowbar",
@@ -241,6 +241,7 @@ function randomPrimaryGen() {
 		"074MP5/10",
 		"074AK74",
 		"076AG-3",
+		"077Uzi",
 		"078SA58 SPR",
 		"079Groza-4",
 		"080AUG A3 Para",
@@ -275,7 +276,6 @@ function randomPrimaryGen() {
 		"195Steyr Scout",
 		"200WA2000",
 		"211G11K2",
-		// "xxxUzi",
 		"000You choose!", // Give the user a break with this one.
 	];
 
@@ -306,7 +306,6 @@ function randomPrimaryGen() {
 		"TA11 ACOG",
 		"Barska Electro",
 		"Pilad-3",
-		//"Animu Sight", // Please mother fucking kill me.
 	];
 
 	var primaryBarrel = [
@@ -348,7 +347,7 @@ function randomPrimaryGen() {
 	const userRank = document.getElementById("userRankInput").value;
 	var weaponIsAvailable = false;
 
-	while (weaponIsAvailable == false) {
+	do {
 		let primaryAct = primary[Math.floor(Math.random() * primary.length)];
 		let primaryNoRank = primaryAct.slice(3);
 		let primaryRank = primaryAct.slice(0, 3);
@@ -429,6 +428,7 @@ function randomPrimaryGen() {
 				case "Kriss Vector":
 				case "MP-40":
 				case "Tommy Gun":
+				case "Uzi":
 					primaryBarrel = primaryBarrel.concat("Osprey Suppressor");
 					break;
 
@@ -440,7 +440,7 @@ function randomPrimaryGen() {
 				case "1858 Carbine":
 				case "Stevens DB":
 				case "Jury":
-					primaryBarrel = [ "Compensator", "Muzzle Brake", "Flash Hider", "Default", "You choose!" ];
+					primaryBarrel = ["Compensator", "Muzzle Brake", "Flash Hider", "Default", "You choose!",];
 					break;
 			}
 
@@ -519,7 +519,9 @@ function randomPrimaryGen() {
 				case "Tommy Gun":
 					primaryExtra = primaryExtra.concat("30rd Mag", "50rd Drum", "Armor Piercing", "Hollow Point");
 					break;
-
+				case "Uzi":
+					primaryExtra = primaryExtra.concat("Extended Stock", "Hollow Point", "Armor Piercing");
+					break;
 				default:
 					primaryExtra = primaryExtra.concat("Hollow Point", "Armor Piercing");
 			}
@@ -527,7 +529,7 @@ function randomPrimaryGen() {
 			primaryExtraAct = primaryExtra[Math.floor(Math.random() * primaryExtra.length)];
 
 
-			var primaryFinalAttachments = "[ " + primarySightAct + ", " + primaryBarrelAct + ", " + primaryUnderAct + ", " + primaryExtraAct + " ]";
+			const primaryFinalAttachments = "[ " + primarySightAct + ", " + primaryBarrelAct + ", " + primaryUnderAct + ", " + primaryExtraAct + " ]";
 
 			document.getElementById("num1").textContent = primaryNoRank;
 			document.getElementById("num1a").textContent = primaryFinalAttachments;
@@ -545,11 +547,11 @@ function randomPrimaryGen() {
 		} else {
 			continue;
 		}
-	}
+	} while (!weaponIsAvailable);
 }
 
 function randomSecondaryGen() {
-	var secondary = [
+	const secondary = [
 		"000M9",
 		"000Glock 17",
 		"004MP412 REX",
@@ -564,15 +566,16 @@ function randomSecondaryGen() {
 		"057Five Seven",
 		"0581858 New Army",
 		"061Zip 22",
+		"068Micro Uzi",
 		"075SFG-50",
 		"083Redhawk 44",
 		"090Sawed Off",
 		"095Saiga-12U",
+		"102Desert Eagle XIX",
 		"106MP1911",
 		"113Judge",
 		"117Obrez",
 		"137Executioner",
-		//"xxxMicro Uzi",
 		"000You choose!",
 	];
 
@@ -630,7 +633,7 @@ function randomSecondaryGen() {
 	const userRank = document.getElementById("userRankInput").value;
 	var weaponIsAvailable = false;
 
-	while (weaponIsAvailable == false) {
+	do {
 		let secondaryAct = secondary[Math.floor(Math.random() * secondary.length)];
 
 		var secondaryNoRank = secondaryAct.slice(3, 999);
@@ -657,6 +660,7 @@ function randomSecondaryGen() {
 					break;
 
 				case "Desert Eagle L5":
+				case "Desert Eagle XIX":
 					secondarySight = secondarySight.concat("Leupold M8-2x");
 					break;
 			}
@@ -675,6 +679,7 @@ function randomSecondaryGen() {
 					secondaryBarrel = [ "Flash Hider", "Compensator", "Muzzle Brake", "Default", "You choose!" ];
 					switch (secondaryNoRank) {
 						case "Desert Eagle L5":
+						case "Desert Eagle XIX":
 							secondaryBarrel = secondaryBarrel.concat("Extended Barrel");
 							break;
 					}
@@ -689,6 +694,7 @@ function randomSecondaryGen() {
 				case "M45A1":
 				case "MP1911":
 				case "Five Seven":
+				case "Micro Uzi":
 					secondaryBarrel = secondaryBarrel.concat("Osprey Suppressor");
 					break;
 			}
@@ -748,17 +754,22 @@ function randomSecondaryGen() {
 						case "Glock 18":
 							secondaryExtra = secondaryExtra.concat("Glock Stock", "33rd Magazine");
 							break;
+
+						case "Micro Uzi":
+							secondaryExtra = secondaryExtra.concat("Extended Stock");
+							break;
 					}
 			}
 
 			secondaryExtraAct = secondaryExtra[Math.floor(Math.random() * secondaryExtra.length)];
 
 			let secondaryFinal = secondaryNoRank;
-			var secondaryFinalAttachments = "[ " + secondarySightAct + ", " + secondaryBarrelAct + ", " + secondaryExtraAct + " ]";
+			const secondaryFinalAttachments = "[ " + secondarySightAct + ", " + secondaryBarrelAct + ", " + secondaryExtraAct + " ]";
 
 			document.getElementById("num2").textContent = secondaryFinal;
 			document.getElementById("num2a").textContent = secondaryFinalAttachments;
 			console.log("Secondary: " + secondaryFinal);
+
 			if (secondaryFinal == undefined || secondarySightAct == undefined || secondaryBarrelAct == undefined || secondaryExtraAct == undefined) {
 				document.getElementById("num4").textContent = "Something went wrong.\nCheck console, noob.";
 				throw new TypeError("Check Math.random assignments.");
@@ -770,40 +781,11 @@ function randomSecondaryGen() {
 		} else {
 			continue;
 		}
-	}
+	} while (!weaponIsAvailable);
 }
-
-/*function randomGrenadeGen() {
-	// This function will be enabled when other grenades eventually get added.
-	// For now, this will be commented...
-	const grenade = [
-		"xxxFrag",
-		"xxxV40 Mini",
-		"xxxRGD-5",
-		"xxxM14 Smoke",
-	];
-
-	const userRank = document.getElementById("userRankInput").value;
-	var weaponIsAvailable = false;
-
-	while (weaponIsAvailable == false) {
-		let grenadeAct = grenade[Math.floor(Math.random() * grenade.length)];
-
-		var grenadeNoRank = grenadeAct.slice(3, 999);
-
-		let grenadeRank = grenadeAct.slice(0, 3);
-		let finalGrenadeRank = parseInt(grenadeRank, 10);
-
-		if (userRank >= finalGrenadeRank) {
-			weaponIsAvailable = true;
-
-			document.getElementById("num4").textContent = grenadeFinal;
-}
-*/
 
 function randomLoadout() {
 	randomPrimaryGen();
 	randomSecondaryGen();
 	randomMeleeGen();
-	//randomGrenadeGen();
 }
