@@ -4,20 +4,36 @@
 		<title>
 			PF Randomizer
 		</title>
-		<link rel="icon" href="favicon.ico">
+		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="apple-touch-icon" href="images/appleIco.png" sizes="1024x1024" />
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="style.css" />
 		<style>
 			@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="loadoutGen.js"></script>
 		<script type="text/javascript">
+			let i = 0;
+			$(document).ready(function() {
+				$("#expandMelees").click(function() {
+					$("#meleeSelection").slideToggle("fast");
+
+					if (i % 2 === 0) document.getElementById("expandMelees").textContent = "Click to collapse melees";
+					else document.getElementById("expandMelees").textContent = "Click to expand melees";
+					
+					i++;
+				});
+			});
+		</script>
+		<script type="text/javascript">
 			function toggle_visibility(id) {
-				const e = document.getElementById(id);
-				if (e.style.display == 'block')
+				var e = document.getElementById(id);
+				if (e.style.display == 'block') {
 					e.style.display = 'none';
-				else
+				} else {
 					e.style.display = 'block';
+				}
 			};
 		</script>
 	</head>
@@ -25,80 +41,83 @@
 		<main>
 			<div class="heading">
 				<h1>PF Loadout Randomizer (WIP)</h1>
-				<h5>Accurate as of PF version <a target="_blank" href="https://roblox-phantom-forces.fandom.com/wiki/Change_Log" title="View change log">4.9.0c</a></h5>
+				<h5>Accurate as of PF version <a target="_blank" href="https://roblox-phantom-forces.fandom.com/wiki/Change_Log" title="View change log">4.13.0</a></h5>
 			</div>
 
 			<section class="container" style="margin-bottom:10em !important;">
-				<div class="a">
-					<h1>Your Rank:</h1> <input type="number" id="userRankInput" value="150" min="0" title="Select rank here." />
+				<div class="user-info">
+					<h1>Your Rank:</h1> <input type="number" id="rankInput" value="150" min="0" title="Select rank here." />
 					<h3 style="margin-bottom:0.35em;">Select your melees:</h3>
-					<h2 style="margin-top:0; margin-bottom:0.5em;">---------------</h2>
-					<input type="checkbox" id="karambit" value="1" title="Karambit" /> <span style="font-family:sans-serif;">Karambit</span>
-					<br />
-					<input type="checkbox" id="hunting" value="1" title="Hunting Knife" /> <span style="font-family:sans-serif;">Hunting Knife</span>
-					<br />
-					<input type="checkbox" id="cleaver" value="1" title="Cleaver" /> <span style="font-family:sans-serif;">Cleaver</span>
-					<br />
-					<input type="checkbox" id="spatula" value="1" title="Tactical Spatula" /> <span style="font-family:sans-serif;">Tactical Spatula</span>
-					<br />
-					<input type="checkbox" id="mekleth" value="1" title="Mek'Leth" /> <span style="font-family:sans-serif;">Mek'Leth</span>
-					<br />
-					<input type="checkbox" id="machete" value="1" title="Machete" /> <span style="font-family:sans-serif;">Machete</span>
-					<br />
-					<input type="checkbox" id="ice" value="1" title="Ice Pick" /> <span style="font-family:sans-serif;">Ice Pick</span>
-					<br />
-					<input type="checkbox" id="tomahawk" value="1" title="Tomahawk" /> <span style="font-family:sans-serif;">Tomahawk</span>
-					<br />
-					<input type="checkbox" id="jason" value="1" title="Jason" /> <span style="font-family:sans-serif;">Jason</span>
-					<br />
-					<input type="checkbox" id="jKey" value="1" title="Jade Key" /> <span style="font-family:sans-serif;">Jade Key</span>
-					<br />
-					<input type="checkbox" id="hattori" value="1" title="Hattori" /> <span style="font-family:sans-serif;">Hattori</span>
-					<br />
-					<input type="checkbox" id="chosen" value="1" title="Chosen One" /> <span style="font-family:sans-serif;">Chosen One</span>
-					<br />
-					<input type="checkbox" id="nordic" value="1" title="Nordic War Axe" /> <span style="font-family:sans-serif;">Nordic War Axe</span>
-					<br />
-					<input type="checkbox" id="reaper" value="1" title="Reaper" /> <span style="font-family:sans-serif;">Reaper</span>
-					<br />
-					<input type="checkbox" id="long" value="1" title="Longsword" /> <span style="font-family:sans-serif;">Longsword</span>
-					<br />
-					<input type="checkbox" id="cricket" value="1" title="Cricket Bat" /> <span style="font-family:sans-serif;">Cricket Bat</span>
-					<br />
-					<input type="checkbox" id="brass" value="1" title="Brass Knuckle" /> <span style="font-family:sans-serif;">Brass Knuckle</span>
-					<br />
-					<input type="checkbox" id="pan" value="1" title="Frying Pan" /> <span style="font-family:sans-serif;">Frying Pan</span>
-					<br />
-					<input type="checkbox" id="baton" value="1" title="ASP Baton" /> <span style="font-family:sans-serif;">ASP Baton</span>
-					<br />
-					<input type="checkbox" id="stick" value="1" title="Stick Grenade" /> <span style="font-family:sans-serif;">Stick Grenade</span>
-					<br />
-					<input type="checkbox" id="trench" value="1" title="Trench Mace" /> <span style="font-family:sans-serif;">Trench Mace</span>
-					<br />
-					<input type="checkbox" id="night" value="1" title="Nightstick" /> <span style="font-family:sans-serif;">Nightstick</span>
-					<br />
-					<input type="checkbox" id="baseball" value="1" title="Baseball Bat" /> <span style="font-family:sans-serif;">Baseball Bat</span>
-					<br />
-					<input type="checkbox" id="sledge" value="1" title="Sledge Hammer" /> <span style="font-family:sans-serif;">Sledge Hammer</span>
-					<br />
-					<input type="checkbox" id="crane" value="1" title="Crane" /> <span style="font-family:sans-serif;">Crane</span>
+					<button id="expandMelees" style="margin-bottom:8px">Click to expand melees</button>
+					<div id="meleeSelection">
+						<h2 style="margin-top:0; margin-bottom:0.5em;">---------------</h2>
+						<input type="checkbox" id="karambit" value="1" title="Karambit" /> <span style="font-family:sans-serif;">Karambit</span>
+						<br />
+						<input type="checkbox" id="hunting" value="1" title="Hunting Knife" /> <span style="font-family:sans-serif;">Hunting Knife</span>
+						<br />
+						<input type="checkbox" id="cleaver" value="1" title="Cleaver" /> <span style="font-family:sans-serif;">Cleaver</span>
+						<br />
+						<input type="checkbox" id="spatula" value="1" title="Tactical Spatula" /> <span style="font-family:sans-serif;">Tactical Spatula</span>
+						<br />
+						<input type="checkbox" id="mekleth" value="1" title="Mek'Leth" /> <span style="font-family:sans-serif;">Mek'Leth</span>
+						<br />
+						<input type="checkbox" id="machete" value="1" title="Machete" /> <span style="font-family:sans-serif;">Machete</span>
+						<br />
+						<input type="checkbox" id="ice" value="1" title="Ice Pick" /> <span style="font-family:sans-serif;">Ice Pick</span>
+						<br />
+						<input type="checkbox" id="tomahawk" value="1" title="Tomahawk" /> <span style="font-family:sans-serif;">Tomahawk</span>
+						<br />
+						<input type="checkbox" id="jason" value="1" title="Jason" /> <span style="font-family:sans-serif;">Jason</span>
+						<br />
+						<input type="checkbox" id="jKey" value="1" title="Jade Key" /> <span style="font-family:sans-serif;">Jade Key</span>
+						<br />
+						<input type="checkbox" id="hattori" value="1" title="Hattori" /> <span style="font-family:sans-serif;">Hattori</span>
+						<br />
+						<input type="checkbox" id="chosen" value="1" title="Chosen One" /> <span style="font-family:sans-serif;">Chosen One</span>
+						<br />
+						<input type="checkbox" id="nordic" value="1" title="Nordic War Axe" /> <span style="font-family:sans-serif;">Nordic War Axe</span>
+						<br />
+						<input type="checkbox" id="reaper" value="1" title="Reaper" /> <span style="font-family:sans-serif;">Reaper</span>
+						<br />
+						<input type="checkbox" id="long" value="1" title="Longsword" /> <span style="font-family:sans-serif;">Longsword</span>
+						<br />
+						<input type="checkbox" id="cricket" value="1" title="Cricket Bat" /> <span style="font-family:sans-serif;">Cricket Bat</span>
+						<br />
+						<input type="checkbox" id="brass" value="1" title="Brass Knuckle" /> <span style="font-family:sans-serif;">Brass Knuckle</span>
+						<br />
+						<input type="checkbox" id="pan" value="1" title="Frying Pan" /> <span style="font-family:sans-serif;">Frying Pan</span>
+						<br />
+						<input type="checkbox" id="baton" value="1" title="ASP Baton" /> <span style="font-family:sans-serif;">ASP Baton</span>
+						<br />
+						<input type="checkbox" id="stick" value="1" title="Stick Grenade" /> <span style="font-family:sans-serif;">Stick Grenade</span>
+						<br />
+						<input type="checkbox" id="trench" value="1" title="Trench Mace" /> <span style="font-family:sans-serif;">Trench Mace</span>
+						<br />
+						<input type="checkbox" id="night" value="1" title="Nightstick" /> <span style="font-family:sans-serif;">Nightstick</span>
+						<br />
+						<input type="checkbox" id="baseball" value="1" title="Baseball Bat" /> <span style="font-family:sans-serif;">Baseball Bat</span>
+						<br />
+						<input type="checkbox" id="sledge" value="1" title="Sledge Hammer" /> <span style="font-family:sans-serif;">Sledge Hammer</span>
+						<br />
+						<input type="checkbox" id="crane" value="1" title="Crane" /> <span style="font-family:sans-serif;">Crane</span>
+					</div>
 					<br />
 					<br />
 					<button onclick="randomLoadout()" title="Click to receive your loadout!">Generate Loadout</button>
 				</div>
-				<div class="b">
+				<div class="output">
 					<h2>Primary:</h2>
-					<h3 id="num1">&nbsp;</h3>
-					<p id="num1a">&nbsp;</p>
+					<h3 id="priGun">&nbsp;</h3>
+					<p id="priAtts">&nbsp;</p>
 					<h2>----------------</h2>
 					<h2>Secondary:</h2>
-					<h3 id="num2">&nbsp;</h3>
-					<p id="num2a">&nbsp;</p>
+					<h3 id="secGun">&nbsp;</h3>
+					<p id="secAtts">&nbsp;</p>
 					<h2>----------------</h2>
 					<h2>Melee:</h2>
-					<h3 id="num3">&nbsp;</h3>
+					<h3 id="mel">&nbsp;</h3>
 					<h2>----------------</h2>
-					<p id="num4">&nbsp;</p>
+					<p id="info-msg">&nbsp;</p>
 				</div>
 			</section>
 			<h5 align="center" style="margin-bottom:10px;">
