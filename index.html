@@ -9,26 +9,9 @@
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 		<link rel="stylesheet" href="style.css" />
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-		<style>
-			@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-		</style>
+		<style>@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');</style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="loadoutGen.js"></script>
-		<script type="text/javascript">
-			let i = 0;
-
-			$(document).ready(function() {
-				$("#expandMelees").click(function() {
-					$("#meleeSelection").slideToggle("fast");
-					if (i % 2 === 0) {
-						document.getElementById("expandMelees").textContent = "Click to collapse melees";
-					} else {
-						document.getElementById("expandMelees").textContent = "Click to expand melees";
-					}
-					i++;
-				});
-			});
-		</script>
 		<script type="text/javascript">
 			function toggle_visibility(id) {
 				let e = document.getElementById(id);
@@ -41,13 +24,41 @@
 			};
 		</script>
 		<script type="text/javascript">
+			let i = 0;
+
+			$(document).ready(function() {
+				$("#expandMelees").click(function() {
+					$("#meleeSelection").slideToggle("fast");
+
+					if (i % 2 === 0) {
+						$("#expandMelees").html("<i class=\"material-icons\">expand_less</i> Click to collapse melees");
+					} else {
+						$("#expandMelees").html("<i class=\"material-icons\">expand_more</i> Click to expand melees");
+					}
+
+					i++;
+				});
+			});
+		</script>
+
+		<script type="text/javascript">
+			// Sidebar
 			function openSide() {
 				document.getElementById("sidebar").style.width = "250px";
 				document.getElementById("content").style.filter= "blur(2px)";
 			}
+			
 			function closeSide() {
 				document.getElementById("sidebar").style.width = "0";
 				document.getElementById("content").style.filter= "blur(0)";
+			}
+
+			// Bottom Bar (Notice) functions
+			function showBottom() {
+				document.getElementById("bottom-bar").style.height = "90px";
+			}
+			function closeBottom() {
+				document.getElementById("bottom-bar").style.height = "0";
 			}
 		</script>
 	</head>
@@ -55,8 +66,9 @@
 		<div id="sidebar" class="nav">
 			<i class="material-icons" onclick="closeSide()" style="position:absolute; top:15px; right:20px; margin-left:50px;">close</i>
 			<a href="index.html" title="Home"><i class="material-icons">home</i> Home</a>
+			<a href="https://www.roblox.com/games/292439477" title="Phantom Forces"><i class="material-icons">sports_esports</i> Phantom Forces</a>
 			<a href="https://github.com/DuoDeca/PFrandomizer" target="_blank" title="GitHub Repository"><i class="material-icons">code</i> GitHub</a>
-			<!--<a href="nightly.html" title="Nightly Build"><i class="material-icons">build</i> Nightly Build</a>-->
+			<!-- <a href="nightly.html" title="Nightly Build"><i class="material-icons">build</i> Nightly Build</a> -->
 		</div>
 		<div id="content">
 			<i class="material-icons" onclick="openSide()">menu</i>
@@ -68,7 +80,7 @@
 				<div class="user-info">
 					<h1>Your Rank:</h1> <input type="number" id="rankInput" value="150" min="0" title="Select rank here." />
 					<h3 style="margin-bottom:0.35em;">Select your melees:</h3>
-					<button id="expandMelees" style="margin-bottom:8px">Click to expand melees</button>
+					<button id="expandMelees" style="margin-bottom:8px"><i class="material-icons">expand_more</i> Click to expand melees</button>
 					<div id="meleeSelection">
 						<h2 style="margin-top:0; margin-bottom:0.5em;">---------------</h2>
 						<input type="checkbox" id="karambit" value="1" title="Karambit" /> <span style="font-family:sans-serif;">Karambit</span>
@@ -123,7 +135,7 @@
 					</div>
 					<br />
 					<br />
-					<button onclick="randomLoadout()" title="Click to receive your loadout!">Generate Loadout</button>
+					<button onclick="randomLoadout()" title="Click to receive your loadout!"><i class="material-icons">check</i> Generate Loadout</button>
 				</div>
 				<div class="output">
 					<h2>Primary:</h2>
@@ -144,6 +156,12 @@
 				<a target="_blank" href="https://roblox-phantom-forces.fandom.com/wiki/Weaponry" title="PFW weaponry page">Weaponry Reference</a> | <a target="_blank" href="https://roblox-phantom-forces.fandom.com/wiki/Attachments" title="PFW attachments page">Attachment Reference</a>
 			</h5>
 			<h5 align="center" style="font-family:'Times New Roman', Times, serif;">Made by @Duo#0012</h5>
+		</div>
+		<div id="bottom-bar" class="notice" onload="showBottom()">
+			<i class="material-icons" onclick="closeBottom()" style="position:absolute; top:18px; right:25px; margin-left:50px;">close</i>
+			<p>
+				Due to the large amount of content added in the recent 4.14.0 version, as well as other events, updates to the randomizer will be temporarily halted.
+			</p>
 		</div>
 	</body>
 </html>
